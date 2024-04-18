@@ -27,8 +27,8 @@ typedef enum
     FIGURA_S,
 } TipusFigura;
 
-const int MAX_ALCADA = 4;
 const int MAX_AMPLADA = 4;
+const int MAX_ALCADA = 4;
 
 typedef enum
 {
@@ -38,6 +38,23 @@ typedef enum
 
 class Figura
 {
+public:
+    Figura(ColorFigura n_color, TipusFigura n_figura);
+    void giraFigura(const DireccioGir& direccio);
+
+    void setPosicioX(int x) { posicio_x = x; }
+    void setPosicioY(int y) { posicio_y = y; }
+    int getPosicioX() const { return posicio_x; }
+    int getPosicioY() const { return posicio_y; }
+    ColorFigura getColor() const { return color; }
+    TipusFigura getTipus() const { return tipus; }
+    
+private:
+    ColorFigura color;
+    TipusFigura tipus;
+    int posicio_x;
+    int posicio_y;
+    ColorFigura figura[MAX_AMPLADA][MAX_ALCADA];
 };
 
 
