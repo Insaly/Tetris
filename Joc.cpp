@@ -1,6 +1,6 @@
 #include "Joc.h"
 
-void incialitza(const string& nomFitxer)
+void Joc::inicialitza(const string& nomFitxer)
 {
 	ColorFigura mat[MAX_FILA][MAX_COL];
 	ifstream fitxer;
@@ -18,8 +18,7 @@ void incialitza(const string& nomFitxer)
 	tauler.setTauler(mat);
 }
 
-
-void escriuTauler(const string& nomFitxer)
+void Joc::escriuTauler(const string& nomFitxer)
 {
 	ColorFigura mat[MAX_FILA][MAX_COL] = tauler.getTauler();
 	ofstream fitxer;
@@ -39,22 +38,44 @@ void escriuTauler(const string& nomFitxer)
 
 }
 
-bool giraFigura(DireccioGir direccio)
+bool Joc::giraFigura(DireccioGir direccio)
 {
 
+	ColorFigura m_aux[MAX_AMPLADA][MAX_ALCADA] = tauler.getTauler();
+	ColorFigura m[MAX_AMPLADA][MAX_ALCADA];
+
+	for(int i = 0; i < MAX_AMPLADA; i++)
+        for(int j = 0; j < MAX_ALCADA; j++)
+		{
+            m[i][j] = m_aux[j][i];
+        }
+
+	switch (direccio)
+	{
+		case GIR_HORARI:
+			
+			break;
+
+		case GIR_ANTI_HORARI:
+			
+			break;
+	}
+
+	
 
 }
 
-bool mouFigura(int dirX)
+bool Joc::mouFigura(int dirX)
 {
 
-
+// Mirem si la figura te espai per a moure's cap als costats, si és vàlid movem el centre de la figura i si no, no
 
 }
 
-int baixaFigura()
+int Joc::baixaFigura()
 {
 
-
+// Mirem si al baixar la figura, les posicions que la rodejen estan ocupats.
+// Si estan ocupats, la transformem en part del tauler i l'eliminem.
 
 }

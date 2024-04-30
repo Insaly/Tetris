@@ -20,6 +20,4 @@ private:
 	Tauler tauler;
 };
 
-
-
 #endif
