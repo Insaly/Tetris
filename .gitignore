@@ -33,6 +33,7 @@
 
 # Visual Studio Code files
 
+*.vs
 *.vscode
 *.json
 
