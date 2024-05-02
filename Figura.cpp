@@ -6,7 +6,7 @@ Figura::Figura(ColorFigura n_color, TipusFigura n_figura)
     tipus = n_figura;
 
     for (int i = 0; i < MAX_AMPLADA; i++)
-        for (int j = 0: i < MAX_ALCADA; j++)
+        for (int j = 0; i < MAX_ALCADA; j++)
         {
            figura[i][j] = NO_COLOR; 
         }
@@ -47,7 +47,7 @@ Figura::Figura(ColorFigura n_color, TipusFigura n_figura)
 void Figura::giraFigura(const DireccioGir& direccio)
 {
 
-	ColorFigura figura_aux[tamany][tamany];
+	ColorFigura figura_aux[MAX_ALCADA][MAX_AMPLADA];
 
     for (int i = 0; i < tamany; i++)
         for (int j = 0; j < tamany; j++)

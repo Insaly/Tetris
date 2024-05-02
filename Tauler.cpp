@@ -18,23 +18,17 @@ int Tauler::actualitzaTauler(Figura figura)
 	{
 		if (figura.getFigura(i, j) != 0)
 		{
-			tauler[i + figura.getPosicioX()][j + figura.getPosicioY()] = figura.getFigura(i, j)
+			tauler[i + figura.getPosicioX()][j + figura.getPosicioY()] = figura.getFigura(i, j);
 		}
 	}
 
-
-	for (int i = 0; i < figura.getTamany(); i++)
-		for (int j = 0; j < figura.getTamany(); j++)
-	{
-		figura.getFigura(i,j)=0
-	}
-
 	int ple = 0;
+
 	for (int i = nFiles - 1; i >= 0; i--)
 	{
 		if (filaPlena(i))
 		{
-			eliminaFila(fila);
+			eliminaFila(i);
 			ple++;
 		}
 		else
@@ -43,8 +37,7 @@ int Tauler::actualitzaTauler(Figura figura)
 				baixaFila(i, ple);
 			}
 	}
-		
-	}
+
 	return ple;
 }
 
@@ -54,7 +47,7 @@ bool Tauler::filaPlena(int fila)
 
 	for (int columna = 0; columna < MAX_COL; columna++)
 	{
-		if (tauler.getTauler(fila, columna) == NO_COLOR)
+		if (tauler[fila][columna] == NO_COLOR)
 		{
 			plena = false;
 		}
@@ -67,7 +60,7 @@ void Tauler::eliminaFila(int fila)
 {
 	for (int columna = 0; columna < MAX_COL; columna++)
 	{
-		setTauler(0, fila, columna);
+		tauler[fila][columna] = NO_COLOR;
 	}
 }
 
@@ -75,8 +68,8 @@ void Tauler::baixaFila(int fila, int nFiles)
 {
 	for (int columna = 0; columna < MAX_COL; columna++)
 	{
-		setTauler(tauler[fila][columna], fila + nFiles, columna);
-		setTauler(NO_FIGURA, fila, columna);
+		tauler[fila + nFiles][columna] = tauler[fila][columna];
+		tauler[fila][columna] = NO_COLOR;
 	}
 
 }

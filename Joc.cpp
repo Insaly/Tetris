@@ -186,7 +186,7 @@ int Joc::baixaFigura()
 
 	else
 	{
-		files_plenes = m_tauler.incorporaFigura(m_figura);
+		files_plenes = m_tauler.actualitzaTauler(m_figura);
 	}
 
 	return files_plenes;

@@ -39,6 +39,7 @@ typedef enum
 class Figura
 {
 public:
+    Figura();
     Figura(ColorFigura n_color, TipusFigura n_figura);
     void giraFigura(const DireccioGir& direccio);
 
