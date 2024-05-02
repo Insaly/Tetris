@@ -6,11 +6,12 @@ void Joc::inicialitza(const string& nomFitxer)
 	fitxer.open(nomFitxer);
 	if (fitxer.is_open())
 	{
-		TipusFigura tTipus;
-		ColorFigura tColor;
-		int x, y, rotacio;
+		int x, y, rotacio, iTipus;
 
-		fitxer >> tTipus >> x >> y >> rotacio;
+		fitxer >> iTipus >> x >> y >> rotacio;
+
+		TipusFigura tTipus = TipusFigura(iTipus);
+		ColorFigura tColor;
 
 		switch (tTipus)
 		{
@@ -30,7 +31,7 @@ void Joc::inicialitza(const string& nomFitxer)
 				tColor = COLOR_VERD;
 		}
 
-		m_figura(tColor, tTipus);
+		m_figura.inicialitza(tColor, tTipus);
 		m_figura.setPosicioX(x);
 		m_figura.setPosicioY(y);
 
@@ -39,7 +40,7 @@ void Joc::inicialitza(const string& nomFitxer)
 			m_figura.giraFigura(GIR_HORARI);
 		}
 
-		ColorFigura input = NO_COLOR;
+		int input = 0;
 
 		while (!fitxer.eof())
 		{
@@ -47,7 +48,7 @@ void Joc::inicialitza(const string& nomFitxer)
 				for (int j = 0; j < MAX_AMPLADA; j++)
 			{
 				fitxer >> input;
-				m_tauler.setTauler(input, i, j);
+				m_tauler.setTauler(ColorFigura(input), i, j);
 			}
 		}
 
@@ -96,7 +97,7 @@ bool Joc::giraFigura(DireccioGir direccio)
 	bool moviment_valid = true;
 	m_figura.giraFigura(direccio);
 
-	if (m_figura.getPosicioX() >= 0 && m_figura.getPosicioX() < MAX_AMPLADA && m_figura.getPosicioY() >= 0 && m_figura.getPosicioY() < MAX_ALCADA)
+	if (m_figura.getPosicioX() >= 0 && m_figura.getPosicioX() < MAX_COL && m_figura.getPosicioY() >= 0 && m_figura.getPosicioY() < MAX_FILA)
 	{
 		for (int i = 0; i < m_figura.getTamany(); i++)
 			for (int j = 0; i < m_figura.getTamany(); j++)
@@ -132,7 +133,7 @@ bool Joc::mouFigura(int dirX)
 	bool moviment_valid = true;
 	int posicio = m_figura.getPosicioX() + dirX;
 
-	if (posicio >= 0 && posicio + m_figura.getTamany() - 1 < MAX_AMPLADA)
+	if (posicio >= 0 && posicio + m_figura.getTamany() - 1 < MAX_COL)
 	{
 		for (int i = 0; i < m_figura.getTamany(); i++)
 			for (int j = 0; i < m_figura.getTamany(); j++)

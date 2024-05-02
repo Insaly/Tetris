@@ -1,15 +1,25 @@
 #include "Figura.h"
 
-Figura::Figura(ColorFigura n_color, TipusFigura n_figura)
+Figura::Figura()
+{
+    color = NO_COLOR;
+    tipus = NO_FIGURA;
+    posicio_x = 0;
+    posicio_y = 0;
+    tamany = 0;
+    rotacio = 0;
+
+    for (int i = 0; i < MAX_AMPLADA; i++)
+        for (int j = 0; j < MAX_ALCADA; j++)
+    {
+        figura[i][j] = NO_COLOR;
+    }
+} 
+
+void Figura::inicialitza(ColorFigura n_color, TipusFigura n_figura)
 {
     color = n_color;
     tipus = n_figura;
-
-    for (int i = 0; i < MAX_AMPLADA; i++)
-        for (int j = 0; i < MAX_ALCADA; j++)
-        {
-           figura[i][j] = NO_COLOR; 
-        }
 
     switch (n_figura)
     {
@@ -46,7 +56,6 @@ Figura::Figura(ColorFigura n_color, TipusFigura n_figura)
 
 void Figura::giraFigura(const DireccioGir& direccio)
 {
-
 	ColorFigura figura_aux[MAX_ALCADA][MAX_AMPLADA];
 
     for (int i = 0; i < tamany; i++)

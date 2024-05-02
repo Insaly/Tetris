@@ -40,7 +40,7 @@ class Figura
 {
 public:
     Figura();
-    Figura(ColorFigura n_color, TipusFigura n_figura);
+    void inicialitza(ColorFigura n_color, TipusFigura n_figura);
     void giraFigura(const DireccioGir& direccio);
 
     void setPosicioX(int x) { posicio_x = x; }
