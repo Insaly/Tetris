@@ -96,7 +96,7 @@ bool Joc::giraFigura(DireccioGir direccio)
 	bool moviment_valid = true;
 	m_figura.giraFigura(direccio);
 
-	if (m_figura.getPosicioX() >= 0 && m_figura.getPosicioX() <= MAX_AMPLADA && m_figura.getPosicioY() >= 0 && m_figura.getPosicioY() <= MAX_ALCADA)
+	if (m_figura.getPosicioX() >= 0 && m_figura.getPosicioX() < MAX_AMPLADA && m_figura.getPosicioY() >= 0 && m_figura.getPosicioY() < MAX_ALCADA)
 	{
 		for (int i = 0; i < m_figura.getTamany(); i++)
 			for (int j = 0; i < m_figura.getTamany(); j++)
@@ -132,7 +132,7 @@ bool Joc::mouFigura(int dirX)
 	bool moviment_valid = true;
 	int posicio = m_figura.getPosicioX() + dirX;
 
-	if (posicio >= 0 && posicio < MAX_AMPLADA)
+	if (posicio >= 0 && posicio + m_figura.getTamany() - 1 < MAX_AMPLADA)
 	{
 		for (int i = 0; i < m_figura.getTamany(); i++)
 			for (int j = 0; i < m_figura.getTamany(); j++)
@@ -159,6 +159,35 @@ bool Joc::mouFigura(int dirX)
 
 int Joc::baixaFigura()
 {
-	
+	bool moviment_valid = true;
+	int files_plenes = 0;
 
+	if (m_figura.getPosicioY() >= 0 && m_figura.getPosicioY() + m_figura.getTamany() - 1 < MAX_ALCADA)
+	{
+		for (int i = 0; i < m_figura.getTamany(); i++)
+			for (int j = 0; i < m_figura.getTamany(); j++)
+		{
+			if ((m_figura.getFigura(i, j) != NO_COLOR) && (m_tauler.getTauler(i + m_figura.getPosicioY(), j + m_figura.getPosicioY()) != NO_COLOR))
+			{
+				moviment_valid = false;
+			}
+		}
+	}
+
+	else
+	{
+		moviment_valid = false;
+	}
+
+	if (moviment_valid)
+	{
+		m_figura.setPosicioY(m_figura.getPosicioY() + 1);
+	}
+
+	else
+	{
+		files_plenes = m_tauler.incorporaFigura(m_figura);
+	}
+
+	return files_plenes;
 }

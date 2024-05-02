@@ -62,5 +62,4 @@ private:
     ColorFigura figura[MAX_AMPLADA][MAX_ALCADA];
 };
 
-
 #endif
