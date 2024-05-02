@@ -44,8 +44,8 @@ void Joc::inicialitza(const string& nomFitxer)
 
 		while (!fitxer.eof())
 		{
-			for (int i = 0; i < MAX_ALCADA; i++)
-				for (int j = 0; j < MAX_AMPLADA; j++)
+			for (int i = 0; i < MAX_FILA; i++)
+				for (int j = 0; j < MAX_COL; j++)
 			{
 				fitxer >> input;
 				m_tauler.setTauler(ColorFigura(input), i, j);
@@ -84,7 +84,7 @@ void Joc::escriuTauler(const string& nomFitxer)
 		{
 			for (int j = 0; j < MAX_AMPLADA; j++)
 			{
-				fitxer << matriu_final[i][j] << " ";
+				fitxer << int(matriu_final[i][j]) << " ";
 			}
 			fitxer << endl;
 		}
@@ -97,7 +97,7 @@ bool Joc::giraFigura(DireccioGir direccio)
 	bool moviment_valid = true;
 	m_figura.giraFigura(direccio);
 
-	if (m_figura.getPosicioX() >= 0 && m_figura.getPosicioX() < MAX_COL && m_figura.getPosicioY() >= 0 && m_figura.getPosicioY() < MAX_FILA)
+	if (m_figura.getPosicioX() >= 0 && m_figura.getPosicioX() < MAX_COL)
 	{
 		for (int i = 0; i < m_figura.getTamany(); i++)
 			for (int j = 0; i < m_figura.getTamany(); j++)
