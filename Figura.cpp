@@ -2,7 +2,6 @@
 
 Figura::Figura(ColorFigura n_color, TipusFigura n_figura)
 {
-
     color = n_color;
     tipus = n_figura;
 
@@ -82,37 +81,5 @@ void Figura::giraFigura(const DireccioGir& direccio)
             rotacio = 0; break;
         case -1:
             rotacio = 3; break;
-    }
-
-    if (tipus == FIGURA_I && direccio == GIR_HORARI)
-    {
-        switch (rotacio)
-        {
-            case 0:
-                posicio_y--; break;
-            case 1:
-                posicio_x--: break;
-            case 2:
-                posicio_y++; break;
-            case 3:
-                posicio_x++; break;
-        }
-    }
-    else 
-    {
-        if (tipus == FIGURA_I && direccio == GIR_ANTI_HORARI)
-        {
-            switch (rotacio)
-            {
-                case 0:
-                    posicio_x++; break;
-                case 1:
-                    posicio_y++: break;
-                case 2:
-                    posicio_x--; break;
-                case 3:
-                    posicio_y--; break;
-            }
-        }
     }
 }

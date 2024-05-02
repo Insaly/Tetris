@@ -3,7 +3,7 @@
 
 typedef enum
 {
-    COLOR_NEGRE = 0,
+    NO_COLOR = 0,
     COLOR_GROC,
     COLOR_BLAUCEL,
     COLOR_MAGENTA,
@@ -11,7 +11,7 @@ typedef enum
     COLOR_BLAUFOSC,
     COLOR_VERMELL,
     COLOR_VERD,
-    NO_COLOR
+    COLOR_NEGRE,
 } ColorFigura;
 
 

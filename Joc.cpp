@@ -3,13 +3,12 @@
 void Joc::inicialitza(const string& nomFitxer)
 {
 	ifstream fitxer;
-
 	fitxer.open(nomFitxer);
 	if (fitxer.is_open())
 	{
 		TipusFigura tTipus;
 		ColorFigura tColor;
-		int x, y, rotacio, n = 0;
+		int x, y, rotacio;
 
 		fitxer >> tTipus >> x >> y >> rotacio;
 
@@ -40,32 +39,56 @@ void Joc::inicialitza(const string& nomFitxer)
 			m_figura.giraFigura(GIR_HORARI);
 		}
 
+		ColorFigura input = NO_COLOR;
+
 		while (!fitxer.eof())
 		{
-			fitxer >> m_tauler[0][n] >> m_tauler[1][n] >> m_tauler[2][n] >> m_tauler[3][n] >> m_tauler[4][n] >> m_tauler[5][n] >> m_tauler[6][n] >> m_tauler[7][n];
-			n++;
+			for (int i = 0; i < MAX_ALCADA; i++)
+				for (int j = 0; j < MAX_AMPLADA; j++)
+			{
+				fitxer >> input;
+				m_tauler.setTauler(input, i, j);
+			}
 		}
-	}
 
-	fitxer.close();
+		fitxer.close();
+	}
 }
 
 void Joc::escriuTauler(const string& nomFitxer)
 {
-	ofstream fitxer;
-	int i = 0;
 
-	fitxer.open(nomFitxer);
-	if (fitxer.is_open())
+	ColorFigura matriu_final[MAX_ALCADA][MAX_AMPLADA];
+
+	for (int i = 0; i < MAX_ALCADA; i++)
+		for (int j = 0; j < MAX_AMPLADA; j++)
 	{
-		while (i < MAX_FILA)
+		matriu_final[i][j] = m_tauler.getTauler(i, j);
+	}
+
+	for (int i = 0; i < m_figura.getTamany(); i++)
+		for (int j = 0; j < m_figura.getTamany(); j++)
+	{
+		if (m_figura.getFigura(i, j) != 0)
 		{
-			fitxer << m_tauler[0][i] << m_tauler[1][i] << m_tauler[2][i] << m_tauler[3][i] << m_tauler[4][i] << m_tauler[5][i] << m_tauler[6][i] << m_tauler[7][i];
-			i++;
+			matriu_final[m_figura.getPosicioX() + i][m_figura.getPosicioY() + j] = m_figura.getFigura(i, j);
 		}
 	}
 
-	fitxer.close();
+	ofstream fitxer;
+	fitxer.open(nomFitxer);
+	if (fitxer.is_open())
+	{
+		for (int i = 0; i < MAX_ALCADA; i++)
+		{
+			for (int j = 0; j < MAX_AMPLADA; j++)
+			{
+				fitxer << matriu_final[i][j] << " ";
+			}
+			fitxer << endl;
+		}
+		fitxer.close();
+	}
 }
 
 bool Joc::giraFigura(DireccioGir direccio)
@@ -73,14 +96,22 @@ bool Joc::giraFigura(DireccioGir direccio)
 	bool moviment_valid = true;
 	m_figura.giraFigura(direccio);
 
-	for (int i = 0; i < m_figura.getTamany(); i++)
-		for (int j = 0; i < m_figura.getTamany(); j++)
+	if (m_figura.getPosicioX() >= 0 && m_figura.getPosicioX() <= MAX_AMPLADA && m_figura.getPosicioY() >= 0 && m_figura.getPosicioY() <= MAX_ALCADA)
+	{
+		for (int i = 0; i < m_figura.getTamany(); i++)
+			for (int j = 0; i < m_figura.getTamany(); j++)
 		{
-			if (m_figura.getFigura(i, j) * m_tauler.getTauler(i, j) != 0)
+			if ((m_figura.getFigura(i, j) != NO_COLOR) && (m_tauler.getTauler(i + m_figura.getPosicioY(), j + m_figura.getPosicioY()) != NO_COLOR))
 			{
 				moviment_valid = false;
 			}
 		}
+	}
+
+	else
+	{
+		moviment_valid = false;
+	}
 	
 	if (!moviment_valid)
 	{
@@ -98,24 +129,36 @@ bool Joc::giraFigura(DireccioGir direccio)
 
 bool Joc::mouFigura(int dirX)
 {
-	bool moviment_valid = false;
+	bool moviment_valid = true;
 	int posicio = m_figura.getPosicioX() + dirX;
 
-	if (posicio + 1 > MAX_COL && posicio - 1 < 0)
+	if (posicio >= 0 && posicio < MAX_AMPLADA)
 	{
 		for (int i = 0; i < m_figura.getTamany(); i++)
-			for (int j = 0; j < m_figura.getTamany(); j++)
+			for (int j = 0; i < m_figura.getTamany(); j++)
+		{
+			if ((m_figura.getFigura(i, j) != 0) && (m_tauler.getTauler(i + m_figura.getPosicioY(), j + m_figura.getPosicioY()) != 0))
 			{
-				if (m_figura.getFigura(i, j) != NO_COLOR && m_tauler.getTauler())
+				moviment_valid = false;
 			}
+		}
 	}
+
+	else
+	{
+		moviment_valid = false;
+	}
+	
+	if (moviment_valid)
+	{
+		m_figura.setPosicioX(m_figura.getPosicioX() + dirX);
+	}
+
 	return moviment_valid;
 }
 
 int Joc::baixaFigura()
 {
-
-// Mirem si al baixar la figura, les posicions que la rodejen estan ocupats.
-// Si estan ocupats, la transformem en part del tauler i l'eliminem.
+	
 
 }
