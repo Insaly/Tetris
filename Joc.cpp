@@ -16,19 +16,19 @@ void Joc::inicialitza(const string& nomFitxer)
 		switch (tTipus)
 		{
 			case FIGURA_O:
-				tColor = COLOR_GROC;
+				tColor = COLOR_GROC; break;
 			case FIGURA_I:
-				tColor = COLOR_BLAUCEL;
+				tColor = COLOR_BLAUCEL; break;
 			case FIGURA_T:
-				tColor = COLOR_MAGENTA;
+				tColor = COLOR_MAGENTA; break;
 			case FIGURA_L:
-				tColor = COLOR_TARONJA;
+				tColor = COLOR_TARONJA; break;
 			case FIGURA_J:
-				tColor = COLOR_BLAUFOSC;
+				tColor = COLOR_BLAUFOSC; break;
 			case FIGURA_Z:
-				tColor = COLOR_VERMELL;
+				tColor = COLOR_VERMELL; break;
 			case FIGURA_S:
-				tColor = COLOR_VERD;
+				tColor = COLOR_VERD; break;
 		}
 
 		m_figura.inicialitza(tColor, tTipus);
@@ -40,15 +40,18 @@ void Joc::inicialitza(const string& nomFitxer)
 			m_figura.giraFigura(GIR_HORARI);
 		}
 
-		int input = 0;
+		int input = 0, n = 0;
 
-		while (!fitxer.eof())
+		while (!fitxer.eof() && n < MAX_FILA)
 		{
 			for (int i = 0; i < MAX_FILA; i++)
-				for (int j = 0; j < MAX_COL; j++)
 			{
-				fitxer >> input;
-				m_tauler.setTauler(ColorFigura(input), i, j);
+				for (int j = 0; j < MAX_COL; j++)
+				{
+					fitxer >> input;
+					m_tauler.setTauler(ColorFigura(input), i, j);
+				}
+				n++;
 			}
 		}
 
@@ -59,10 +62,10 @@ void Joc::inicialitza(const string& nomFitxer)
 void Joc::escriuTauler(const string& nomFitxer)
 {
 
-	ColorFigura matriu_final[MAX_ALCADA][MAX_AMPLADA];
+	ColorFigura matriu_final[MAX_FILA][MAX_COL];
 
-	for (int i = 0; i < MAX_ALCADA; i++)
-		for (int j = 0; j < MAX_AMPLADA; j++)
+	for (int i = 0; i < MAX_FILA; i++)
+		for (int j = 0; j < MAX_COL; j++)
 	{
 		matriu_final[i][j] = m_tauler.getTauler(i, j);
 	}
@@ -80,11 +83,11 @@ void Joc::escriuTauler(const string& nomFitxer)
 	fitxer.open(nomFitxer);
 	if (fitxer.is_open())
 	{
-		for (int i = 0; i < MAX_ALCADA; i++)
+		for (int i = 0; i < MAX_FILA; i++)
 		{
-			for (int j = 0; j < MAX_AMPLADA; j++)
+			for (int j = 0; j < MAX_COL; j++)
 			{
-				fitxer << int(matriu_final[i][j]) << " ";
+				fitxer << matriu_final[i][j] << " ";
 			}
 			fitxer << endl;
 		}
