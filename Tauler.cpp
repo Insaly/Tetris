@@ -9,8 +9,10 @@ Tauler::Tauler()
 		}
 }
 
-void Tauler::actualitzaTauler(Figura figura)
+int Tauler::actualitzaTauler(Figura figura)
 {
+	int nFiles = 0;
+
 	for (int i = 0; i < figura.getTamany(); i++)
 		for (int j = 0; j < figura.getTamany(); j++)
 	{
@@ -20,12 +22,30 @@ void Tauler::actualitzaTauler(Figura figura)
 		}
 	}
 
-	bool plena[MAX_ALCADA];
 
-	for (int col = 0; col < MAX_COL; col++)
+	for (int i = 0; i < figura.getTamany(); i++)
+		for (int j = 0; j < figura.getTamany(); j++)
 	{
+		figura.getFigura(i,j)=0
+	}
+
+	int ple = 0;
+	for (int i = nFiles - 1; i >= 0; i--)
+	{
+		if (filaPlena(i))
+		{
+			eliminaFila(fila);
+			ple++;
+		}
+		else
+			if (ple > 0)
+			{
+				baixaFila(i, ple);
+			}
+	}
 		
 	}
+	return ple;
 }
 
 bool Tauler::filaPlena(int fila)
@@ -61,21 +81,4 @@ void Tauler::baixaFila(int fila, int nFiles)
 
 }
 
-int Tauler::borraFilaPlena()
-{
-	int ple = 0;
-	for (int i = nFiles - 1; i >= 0; fila--)
-	{
-		if (filaPlena(i))
-		{
-			eliminaFila(fila);
-			ple++;
-		}
-		else
-			if (ple > 0)
-			{
-				baixafila(i, ple);
-			}
-	}
-	return ple;
-}
+
