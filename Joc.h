@@ -17,6 +17,7 @@ public:
 	void escriuTauler(const string& nomFitxer);
 
 private:
+	bool comprovaEspai();
 	Tauler m_tauler;
 	Figura m_figura;
 };

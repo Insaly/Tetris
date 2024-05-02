@@ -11,7 +11,6 @@ Tauler::Tauler()
 
 int Tauler::actualitzaTauler(Figura figura)
 {
-	int nFiles = 0;
 
 	for (int i = 0; i < figura.getTamany(); i++)
 		for (int j = 0; j < figura.getTamany(); j++)
@@ -24,7 +23,7 @@ int Tauler::actualitzaTauler(Figura figura)
 
 	int ple = 0;
 
-	for (int i = nFiles - 1; i >= 0; i--)
+	for (int i = MAX_FILA - 1; i >= 0; i--)
 	{
 		if (filaPlena(i))
 		{

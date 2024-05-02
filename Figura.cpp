@@ -21,6 +21,12 @@ void Figura::inicialitza(ColorFigura n_color, TipusFigura n_figura)
     color = n_color;
     tipus = n_figura;
 
+    for (int i = 0; i < MAX_AMPLADA; i++)
+        for (int j = 0; j < MAX_ALCADA; j++)
+    {
+        figura[i][j] = NO_COLOR;
+    }
+
     switch (n_figura)
     {
         case FIGURA_O:
@@ -51,6 +57,8 @@ void Figura::inicialitza(ColorFigura n_color, TipusFigura n_figura)
             tamany = 3;
             figura[0][0] = n_color; figura[0][1] = n_color; figura[1][1] = n_color; figura[1][2] = n_color;
             break;
+        default:
+            tamany = 4;
     }
 }
 
@@ -70,7 +78,7 @@ void Figura::giraFigura(const DireccioGir& direccio)
 			for (int i = 0; i < tamany; i++)
                 for (int j = 0; j < tamany; j++)
             {
-                figura[i][j] = figura[i][tamany-j-1];
+                figura[i][j] = figura_aux[i][tamany-j-1];
             }
             rotacio++;
 			break;
@@ -78,7 +86,7 @@ void Figura::giraFigura(const DireccioGir& direccio)
 			for (int i = 0; i < tamany; i++)
                 for (int j = 0; j < tamany; j++)
             {
-                figura[i][j] = figura[tamany-i-1][j];
+                figura[i][j] = figura_aux[tamany-i-1][j];
             }
             rotacio--;
 			break;

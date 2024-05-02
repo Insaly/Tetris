@@ -6,6 +6,7 @@ void Joc::inicialitza(const string& nomFitxer)
 	fitxer.open(nomFitxer);
 	if (fitxer.is_open())
 	{
+		m_figura.inicialitza(NO_COLOR, NO_TIPUS);
 		int x, y, rotacio, iTipus;
 
 		fitxer >> iTipus >> x >> y >> rotacio;
@@ -13,12 +14,22 @@ void Joc::inicialitza(const string& nomFitxer)
 		TipusFigura tTipus = TipusFigura(iTipus);
 		ColorFigura tColor;
 
+		x--;
+		y--;
+
 		switch (tTipus)
 		{
 			case FIGURA_O:
 				tColor = COLOR_GROC; break;
 			case FIGURA_I:
-				tColor = COLOR_BLAUCEL; break;
+				tColor = COLOR_BLAUCEL;
+				switch (rotacio)
+				{
+					case 0: x--; break;
+					case 1: x--; y--; break;
+					case 2: y--; break;
+				}
+				break;
 			case FIGURA_T:
 				tColor = COLOR_MAGENTA; break;
 			case FIGURA_L:
@@ -75,7 +86,7 @@ void Joc::escriuTauler(const string& nomFitxer)
 	{
 		if (m_figura.getFigura(i, j) != 0)
 		{
-			matriu_final[m_figura.getPosicioX() + i][m_figura.getPosicioY() + j] = m_figura.getFigura(i, j);
+			matriu_final[m_figura.getPosicioY() + i][m_figura.getPosicioX() + j] = m_figura.getFigura(i, j);
 		}
 	}
 
@@ -95,15 +106,14 @@ void Joc::escriuTauler(const string& nomFitxer)
 	}
 }
 
-bool Joc::giraFigura(DireccioGir direccio)
+bool Joc::comprovaEspai()
 {
 	bool moviment_valid = true;
-	m_figura.giraFigura(direccio);
 
-	if (m_figura.getPosicioX() >= 0 && m_figura.getPosicioX() < MAX_COL)
+	if (m_figura.getPosicioX() >= 0 && m_figura.getPosicioX() + m_figura.getTamany() < MAX_COL && m_figura.getPosicioY() >= 0 && m_figura.getPosicioY() + m_figura.getTamany() < MAX_FILA)
 	{
 		for (int i = 0; i < m_figura.getTamany(); i++)
-			for (int j = 0; i < m_figura.getTamany(); j++)
+			for (int j = 0; j < m_figura.getTamany(); j++)
 		{
 			if ((m_figura.getFigura(i, j) != NO_COLOR) && (m_tauler.getTauler(i + m_figura.getPosicioY(), j + m_figura.getPosicioY()) != NO_COLOR))
 			{
@@ -111,12 +121,19 @@ bool Joc::giraFigura(DireccioGir direccio)
 			}
 		}
 	}
-
 	else
 	{
 		moviment_valid = false;
 	}
-	
+
+	return moviment_valid;
+}
+
+bool Joc::giraFigura(DireccioGir direccio)
+{
+	m_figura.giraFigura(direccio);
+	bool moviment_valid = comprovaEspai();
+
 	if (!moviment_valid)
 	{
 		switch (direccio)
@@ -133,29 +150,12 @@ bool Joc::giraFigura(DireccioGir direccio)
 
 bool Joc::mouFigura(int dirX)
 {
-	bool moviment_valid = true;
-	int posicio = m_figura.getPosicioX() + dirX;
-
-	if (posicio >= 0 && posicio + m_figura.getTamany() - 1 < MAX_COL)
-	{
-		for (int i = 0; i < m_figura.getTamany(); i++)
-			for (int j = 0; i < m_figura.getTamany(); j++)
-		{
-			if ((m_figura.getFigura(i, j) != 0) && (m_tauler.getTauler(i + m_figura.getPosicioY(), j + m_figura.getPosicioY()) != 0))
-			{
-				moviment_valid = false;
-			}
-		}
-	}
-
-	else
-	{
-		moviment_valid = false;
-	}
+	m_figura.setPosicioX(m_figura.getPosicioX() + dirX);
+	bool moviment_valid = comprovaEspai();
 	
-	if (moviment_valid)
+	if (!moviment_valid)
 	{
-		m_figura.setPosicioX(m_figura.getPosicioX() + dirX);
+		m_figura.setPosicioX(m_figura.getPosicioX() - dirX);
 	}
 
 	return moviment_valid;
@@ -163,33 +163,13 @@ bool Joc::mouFigura(int dirX)
 
 int Joc::baixaFigura()
 {
-	bool moviment_valid = true;
+	m_figura.setPosicioY(m_figura.getPosicioY() + 1);
+	bool moviment_valid = comprovaEspai();
 	int files_plenes = 0;
 
-	if (m_figura.getPosicioY() >= 0 && m_figura.getPosicioY() + m_figura.getTamany() - 1 < MAX_ALCADA)
+	if (!moviment_valid)
 	{
-		for (int i = 0; i < m_figura.getTamany(); i++)
-			for (int j = 0; i < m_figura.getTamany(); j++)
-		{
-			if ((m_figura.getFigura(i, j) != NO_COLOR) && (m_tauler.getTauler(i + m_figura.getPosicioY(), j + m_figura.getPosicioY()) != NO_COLOR))
-			{
-				moviment_valid = false;
-			}
-		}
-	}
-
-	else
-	{
-		moviment_valid = false;
-	}
-
-	if (moviment_valid)
-	{
-		m_figura.setPosicioY(m_figura.getPosicioY() + 1);
-	}
-
-	else
-	{
+		m_figura.setPosicioY(m_figura.getPosicioY() - 1);
 		files_plenes = m_tauler.actualitzaTauler(m_figura);
 	}
 
