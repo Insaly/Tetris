@@ -6,16 +6,15 @@ void Joc::inicialitza(const string& nomFitxer)
 	fitxer.open(nomFitxer);
 	if (fitxer.is_open())
 	{
-		m_figura.inicialitza(NO_COLOR, NO_TIPUS);
-		int x, y, rotacio, iTipus;
+		m_figura.inicialitza(NO_COLOR, NO_FIGURA);
+		int y, x, rotacio, iTipus;
 
-		fitxer >> iTipus >> x >> y >> rotacio;
+		fitxer >> iTipus >> y >> x >> rotacio;
 
 		TipusFigura tTipus = TipusFigura(iTipus);
 		ColorFigura tColor;
 
-		x--;
-		y--;
+		x--; y--;
 
 		switch (tTipus)
 		{
@@ -115,7 +114,7 @@ bool Joc::comprovaEspai()
 		for (int i = 0; i < m_figura.getTamany(); i++)
 			for (int j = 0; j < m_figura.getTamany(); j++)
 		{
-			if ((m_figura.getFigura(i, j) != NO_COLOR) && (m_tauler.getTauler(i + m_figura.getPosicioY(), j + m_figura.getPosicioY()) != NO_COLOR))
+			if ((m_figura.getFigura(i, j) != NO_COLOR) && (m_tauler.getTauler(i + m_figura.getPosicio(), j + m_figura.getPosicioX()) != NO_COLOR))
 			{
 				moviment_valid = false;
 			}
