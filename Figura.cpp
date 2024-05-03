@@ -7,7 +7,6 @@ Figura::Figura()
     posicio_x = 0;
     posicio_y = 0;
     tamany = 0;
-    rotacio = 0;
 
     for (int i = 0; i < MAX_AMPLADA; i++)
         for (int j = 0; j < MAX_ALCADA; j++)
@@ -80,7 +79,6 @@ void Figura::giraFigura(const DireccioGir& direccio)
             {
                 figura[i][j] = figura_aux[i][tamany-j-1];
             }
-            rotacio++;
 			break;
 		case GIR_ANTI_HORARI:
 			for (int i = 0; i < tamany; i++)
@@ -88,15 +86,6 @@ void Figura::giraFigura(const DireccioGir& direccio)
             {
                 figura[i][j] = figura_aux[tamany-i-1][j];
             }
-            rotacio--;
 			break;
 	}
-
-    switch (rotacio)
-	{
-        case 4:
-            rotacio = 0; break;
-        case -1:
-            rotacio = 3; break;
-    }
 }

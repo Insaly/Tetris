@@ -72,4 +72,3 @@ void Tauler::eliminaFila(int fila)
 		tauler[0][columna] = COLOR_NEGRE;
 	}
 }
-

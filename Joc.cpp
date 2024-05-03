@@ -16,21 +16,12 @@ void Joc::inicialitza(const string& nomFitxer)
 		TipusFigura tTipus = TipusFigura(iTipus);
 		ColorFigura tColor;
 
-		x--; y--;
-
 		switch (tTipus)
 		{
 			case FIGURA_O:
 				tColor = COLOR_GROC; break;
 			case FIGURA_I:
-				tColor = COLOR_BLAUCEL;
-				switch (rotacio)
-				{
-					case 0: x--; break;
-					case 1: x--; y--; break;
-					case 2: y--; break;
-				}
-				break;
+				tColor = COLOR_BLAUCEL; break;
 			case FIGURA_T:
 				tColor = COLOR_MAGENTA; break;
 			case FIGURA_L:
@@ -44,8 +35,8 @@ void Joc::inicialitza(const string& nomFitxer)
 		}
 
 		m_figura.inicialitza(tColor, tTipus);
-		m_figura.setPosicioX(x);
-		m_figura.setPosicioY(y);
+		m_figura.setPosicioX(x-1);
+		m_figura.setPosicioY(y-1);
 
 		for (int i = 0; i < rotacio; i++)
 		{
@@ -114,19 +105,42 @@ void Joc::escriuTauler(const string& nomFitxer)
 
 bool Joc::comprovaEspai()
 {
-	bool moviment_valid = true, dintre_limits;
+	bool moviment_valid = true;
+	ColorFigura tauler_aux[MAX_FILA + 4][MAX_COL + 4];
+
+	for (int i = 0; i < MAX_FILA + 4; i++)
+	{
+		tauler_aux[i][0] = NO_COLOR;
+		tauler_aux[i][1] = NO_COLOR;
+		tauler_aux[i][MAX_COL + 2] = NO_COLOR;
+		tauler_aux[i][MAX_COL + 3] = NO_COLOR;
+	}
+		
+	for (int j = 0; j < MAX_COL + 4; j++)
+	{
+		tauler_aux[0][j] = NO_COLOR;
+		tauler_aux[1][j] = NO_COLOR;
+		tauler_aux[MAX_FILA + 2][j] = NO_COLOR;
+		tauler_aux[MAX_FILA + 3][j] = NO_COLOR;
+	}
+	
+	for (int i = 2; i < MAX_FILA + 2; i++)
+	    for(int j = 2; j < MAX_COL + 2; j++)
+    	{
+    		tauler_aux[i][j] = m_tauler.getTauler(i-2, j-2);
+    	}
 
 	for (int i = 0; i < m_figura.getTamany(); i++)
 		for (int j = 0; j < m_figura.getTamany(); j++)
-	{
-		if (m_figura.getFigura(i, j) != COLOR_NEGRE)
 		{
-			if (m_tauler.getTauler(i + m_figura.getPosicioY(), j + m_figura.getPosicioX()) != COLOR_NEGRE)
+			if (m_figura.getFigura(i, j) != COLOR_NEGRE)
 			{
-				moviment_valid = false;
+				if (tauler_aux[m_figura.getPosicioY() + i + 2][m_figura.getPosicioX() + j + 2] != COLOR_NEGRE)
+				{
+					moviment_valid = false;
+				}
 			}
 		}
-	}
 
 	return moviment_valid;
 }
