@@ -43,7 +43,7 @@ void Figura::inicialitza(ColorFigura n_color, TipusFigura n_figura)
             break;
         case FIGURA_L:
             tamany = 3;
-            figura[0][3] = n_color; figura[1][0] = n_color; figura[1][1] = n_color; figura[1][2] = n_color;
+            figura[0][2] = n_color; figura[1][0] = n_color; figura[1][1] = n_color; figura[1][2] = n_color;
             break;
         case FIGURA_J:
             tamany = 3;

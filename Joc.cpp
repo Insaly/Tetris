@@ -108,15 +108,50 @@ void Joc::escriuTauler(const string& nomFitxer)
 bool Joc::comprovaEspai()
 {
 	bool moviment_valid = true;
+	int min_x = 0, max_x = MAX_COL;
 
-	if (m_figura.getPosicioX() >= 0 && m_figura.getPosicioX() + m_figura.getTamany() < MAX_COL && m_figura.getPosicioY() >= 0 && m_figura.getPosicioY() + m_figura.getTamany() < MAX_FILA)
+    switch (m_figura.getRotacio())
+    {
+        case 1:
+			switch (m_figura.getTipus())
+			{
+				case FIGURA_I:
+					min_x = -2;
+					break;
+				case FIGURA_O:
+					min_x = 0;
+					break;
+				default:
+					min_x = -1;
+			}
+			break;
+        case 3:
+			switch (m_figura.getTipus())
+			{
+				case FIGURA_I:
+					max_x = MAX_COL + 2;
+					break;
+				case FIGURA_O:
+					max_x = MAX_COL;
+					break;
+				default:
+					max_x = MAX_COL + 1;
+			}
+			break;
+    }
+
+
+	if (m_figura.getPosicioX() >= min_x && m_figura.getPosicioX() + m_figura.getTamany() - 1 <= max_x)
 	{
 		for (int i = 0; i < m_figura.getTamany(); i++)
 			for (int j = 0; j < m_figura.getTamany(); j++)
 		{
-			if ((m_figura.getFigura(i, j) != NO_COLOR) && (m_tauler.getTauler(i + m_figura.getPosicio(), j + m_figura.getPosicioX()) != NO_COLOR))
+			if (m_figura.getFigura(i, j) != NO_COLOR)
 			{
-				moviment_valid = false;
+				if (m_tauler.getTauler(i + m_figura.getPosicioY(), j + m_figura.getPosicioX()) != NO_COLOR)
+				{
+					moviment_valid = false;
+				}
 			}
 		}
 	}

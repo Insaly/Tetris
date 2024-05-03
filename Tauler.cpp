@@ -21,20 +21,19 @@ int Tauler::actualitzaTauler(Figura figura)
 		}
 	}
 
-	int ple = 0;
+	int ple = 0, fila = 0;
 
-	for (int i = MAX_FILA - 1; i >= 0; i--)
+	while (fila < MAX_FILA)
 	{
-		if (filaPlena(i))
+		if (filaPlena(fila))
 		{
-			eliminaFila(i);
+			eliminaFila(fila);
 			ple++;
 		}
 		else
-			if (ple > 0)
-			{
-				baixaFila(i, ple);
-			}
+		{
+			fila++;
+		}
 	}
 
 	return ple;
@@ -43,12 +42,17 @@ int Tauler::actualitzaTauler(Figura figura)
 bool Tauler::filaPlena(int fila)
 {
 	bool plena = true;
+	int columna = 0;
 
-	for (int columna = 0; columna < MAX_COL; columna++)
+	while (plena && columna < MAX_COL)
 	{
 		if (tauler[fila][columna] == NO_COLOR)
 		{
 			plena = false;
+		}
+		else
+		{
+			columna++;
 		}
 	}
 
@@ -57,20 +61,18 @@ bool Tauler::filaPlena(int fila)
 
 void Tauler::eliminaFila(int fila)
 {
-	for (int columna = 0; columna < MAX_COL; columna++)
+	for (int index = fila; index > 0; index++)
 	{
-		tauler[fila][columna] = NO_COLOR;
-	}
-}
-
-void Tauler::baixaFila(int fila, int nFiles)
-{
-	for (int columna = 0; columna < MAX_COL; columna++)
-	{
-		tauler[fila + nFiles][columna] = tauler[fila][columna];
-		tauler[fila][columna] = NO_COLOR;
+		for (int columna = 0; columna < MAX_COL; columna++)
+		{
+			tauler[index][columna] = tauler[index-1][columna];
+		}
 	}
 
+	for (int columna = 0; columna < MAX_COL; columna++)
+	{
+		tauler[0][columna] = NO_COLOR;
+	}
 }
 
 
