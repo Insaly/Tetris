@@ -1,4 +1,6 @@
 #include "Joc.h"
+#include <iostream>
+using namespace std;
 
 void Joc::inicialitza(const string& nomFitxer)
 {
@@ -75,19 +77,24 @@ void Joc::escriuTauler(const string& nomFitxer)
 	ColorFigura matriu_final[MAX_FILA][MAX_COL];
 
 	for (int i = 0; i < MAX_FILA; i++)
+	{
 		for (int j = 0; j < MAX_COL; j++)
-	{
-		matriu_final[i][j] = m_tauler.getTauler(i, j);
+    	{
+    		matriu_final[i][j] = m_tauler.getTauler(i, j);
+    	}
 	}
-
-	for (int i = 0; i < m_figura.getTamany(); i++)
-		for (int j = 0; j < m_figura.getTamany(); j++)
-	{
-		if (m_figura.getFigura(i, j) != 0)
-		{
-			matriu_final[m_figura.getPosicioY() + i][m_figura.getPosicioX() + j] = m_figura.getFigura(i, j);
-		}
-	}
+    
+    if (m_figura.getTipus() != NO_FIGURA)
+    {
+    	for (int i = 0; i < m_figura.getTamany(); i++)
+    		for (int j = 0; j < m_figura.getTamany(); j++)
+    	{
+    		if (m_figura.getFigura(i, j) != 0)
+    		{
+    			matriu_final[m_figura.getPosicioY() + i][m_figura.getPosicioX() + j] = m_figura.getFigura(i, j);
+    		}
+    	}
+    }
 
 	ofstream fitxer;
 	fitxer.open(nomFitxer);
@@ -141,8 +148,8 @@ bool Joc::comprovaEspai()
     }
 
 
-	if (m_figura.getPosicioX() >= min_x && m_figura.getPosicioX() + m_figura.getTamany() - 1 <= max_x)
-	{
+	/*if (m_figura.getPosicioX() >= min_x && m_figura.getPosicioX() + m_figura.getTamany() - 1 <= max_x)
+	{*/
 		for (int i = 0; i < m_figura.getTamany(); i++)
 			for (int j = 0; j < m_figura.getTamany(); j++)
 		{
@@ -153,12 +160,12 @@ bool Joc::comprovaEspai()
 					moviment_valid = false;
 				}
 			}
-		}
+		}/*
 	}
 	else
 	{
 		moviment_valid = false;
-	}
+	}*/
 
 	return moviment_valid;
 }
@@ -205,6 +212,7 @@ int Joc::baixaFigura()
 	{
 		m_figura.setPosicioY(m_figura.getPosicioY() - 1);
 		files_plenes = m_tauler.actualitzaTauler(m_figura);
+		m_figura.inicialitza(NO_COLOR, NO_FIGURA);
 	}
 
 	return files_plenes;

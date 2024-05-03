@@ -1,5 +1,4 @@
 #include "Tauler.h"
-
 Tauler::Tauler()
 {
 	for (int i = 0; i < MAX_FILA; i++)
@@ -15,9 +14,9 @@ int Tauler::actualitzaTauler(Figura figura)
 	for (int i = 0; i < figura.getTamany(); i++)
 		for (int j = 0; j < figura.getTamany(); j++)
 	{
-		if (figura.getFigura(i, j) != 0)
+		if (figura.getFigura(i, j) != NO_COLOR)
 		{
-			tauler[i + figura.getPosicioX()][j + figura.getPosicioY()] = figura.getFigura(i, j);
+			tauler[i + figura.getPosicioY()][j + figura.getPosicioX()] = figura.getFigura(i, j);
 		}
 	}
 
@@ -35,7 +34,7 @@ int Tauler::actualitzaTauler(Figura figura)
 			fila++;
 		}
 	}
-
+	
 	return ple;
 }
 
@@ -55,13 +54,12 @@ bool Tauler::filaPlena(int fila)
 			columna++;
 		}
 	}
-
 	return plena;
 }
 
 void Tauler::eliminaFila(int fila)
 {
-	for (int index = fila; index > 0; index++)
+	for (int index = fila; index > 0; index--)
 	{
 		for (int columna = 0; columna < MAX_COL; columna++)
 		{
@@ -74,5 +72,4 @@ void Tauler::eliminaFila(int fila)
 		tauler[0][columna] = NO_COLOR;
 	}
 }
-
 
