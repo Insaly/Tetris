@@ -8,7 +8,7 @@ void Joc::inicialitza(const string& nomFitxer)
 	fitxer.open(nomFitxer);
 	if (fitxer.is_open())
 	{
-		m_figura.inicialitza(NO_COLOR, NO_FIGURA);
+		m_figura.inicialitza(COLOR_NEGRE, NO_FIGURA);
 		int y, x, rotacio, iTipus;
 
 		fitxer >> iTipus >> y >> x >> rotacio;
@@ -114,58 +114,19 @@ void Joc::escriuTauler(const string& nomFitxer)
 
 bool Joc::comprovaEspai()
 {
-	bool moviment_valid = true;
-	int min_x = 0, max_x = MAX_COL;
+	bool moviment_valid = true, dintre_limits;
 
-    switch (m_figura.getRotacio())
-    {
-        case 1:
-			switch (m_figura.getTipus())
-			{
-				case FIGURA_I:
-					min_x = -2;
-					break;
-				case FIGURA_O:
-					min_x = 0;
-					break;
-				default:
-					min_x = -1;
-			}
-			break;
-        case 3:
-			switch (m_figura.getTipus())
-			{
-				case FIGURA_I:
-					max_x = MAX_COL + 2;
-					break;
-				case FIGURA_O:
-					max_x = MAX_COL;
-					break;
-				default:
-					max_x = MAX_COL + 1;
-			}
-			break;
-    }
-
-
-	/*if (m_figura.getPosicioX() >= min_x && m_figura.getPosicioX() + m_figura.getTamany() - 1 <= max_x)
-	{*/
-		for (int i = 0; i < m_figura.getTamany(); i++)
-			for (int j = 0; j < m_figura.getTamany(); j++)
-		{
-			if (m_figura.getFigura(i, j) != NO_COLOR)
-			{
-				if (m_tauler.getTauler(i + m_figura.getPosicioY(), j + m_figura.getPosicioX()) != NO_COLOR)
-				{
-					moviment_valid = false;
-				}
-			}
-		}/*
-	}
-	else
+	for (int i = 0; i < m_figura.getTamany(); i++)
+		for (int j = 0; j < m_figura.getTamany(); j++)
 	{
-		moviment_valid = false;
-	}*/
+		if (m_figura.getFigura(i, j) != COLOR_NEGRE)
+		{
+			if (m_tauler.getTauler(i + m_figura.getPosicioY(), j + m_figura.getPosicioX()) != COLOR_NEGRE)
+			{
+				moviment_valid = false;
+			}
+		}
+	}
 
 	return moviment_valid;
 }
@@ -212,7 +173,7 @@ int Joc::baixaFigura()
 	{
 		m_figura.setPosicioY(m_figura.getPosicioY() - 1);
 		files_plenes = m_tauler.actualitzaTauler(m_figura);
-		m_figura.inicialitza(NO_COLOR, NO_FIGURA);
+		m_figura.inicialitza(COLOR_NEGRE, NO_FIGURA);
 	}
 
 	return files_plenes;

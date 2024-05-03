@@ -2,7 +2,7 @@
 
 Figura::Figura()
 {
-    color = NO_COLOR;
+    color = COLOR_NEGRE;
     tipus = NO_FIGURA;
     posicio_x = 0;
     posicio_y = 0;
@@ -12,7 +12,7 @@ Figura::Figura()
     for (int i = 0; i < MAX_AMPLADA; i++)
         for (int j = 0; j < MAX_ALCADA; j++)
     {
-        figura[i][j] = NO_COLOR;
+        figura[i][j] = COLOR_NEGRE;
     }
 } 
 
@@ -24,7 +24,7 @@ void Figura::inicialitza(ColorFigura n_color, TipusFigura n_figura)
     for (int i = 0; i < MAX_AMPLADA; i++)
         for (int j = 0; j < MAX_ALCADA; j++)
     {
-        figura[i][j] = NO_COLOR;
+        figura[i][j] = COLOR_NEGRE;
     }
 
     switch (n_figura)

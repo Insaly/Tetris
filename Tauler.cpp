@@ -14,7 +14,7 @@ int Tauler::actualitzaTauler(Figura figura)
 	for (int i = 0; i < figura.getTamany(); i++)
 		for (int j = 0; j < figura.getTamany(); j++)
 	{
-		if (figura.getFigura(i, j) != NO_COLOR)
+		if (figura.getFigura(i, j) != COLOR_NEGRE)
 		{
 			tauler[i + figura.getPosicioY()][j + figura.getPosicioX()] = figura.getFigura(i, j);
 		}
@@ -45,7 +45,7 @@ bool Tauler::filaPlena(int fila)
 
 	while (plena && columna < MAX_COL)
 	{
-		if (tauler[fila][columna] == NO_COLOR)
+		if (tauler[fila][columna] == COLOR_NEGRE)
 		{
 			plena = false;
 		}
@@ -69,7 +69,7 @@ void Tauler::eliminaFila(int fila)
 
 	for (int columna = 0; columna < MAX_COL; columna++)
 	{
-		tauler[0][columna] = NO_COLOR;
+		tauler[0][columna] = COLOR_NEGRE;
 	}
 }
 
