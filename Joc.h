@@ -3,6 +3,7 @@
 #include "Tauler.h"
 #include "Figura.h"
 #include <string>
+#include <fstream>
 using namespace std;
 
 class Joc
@@ -14,8 +15,10 @@ public:
 	bool mouFigura(int dirX);
 	int baixaFigura();
 	void escriuTauler(const string& nomFitxer);
-
 private:
+	bool comprovaEspai();
+	Tauler m_tauler;
+	Figura m_figura;
 };
 
 #endif
