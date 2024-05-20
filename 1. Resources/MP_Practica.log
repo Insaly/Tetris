@@ -1,0 +1,4 @@
+﻿  Partida.cpp
+C:\Users\User\Desktop\Tetris\0. C++ Code\Logic Game\Partida.cpp(43,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\User\Desktop\Tetris\0. C++ Code\Logic Game\Partida.cpp(42,81): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  MP_Practica.vcxproj -> C:\Users\User\Desktop\Tetris\2. Platforms\0. Windows Desktop\Program\MP_Practica.exe

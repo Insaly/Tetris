@@ -18,25 +18,25 @@ void Joc::inicialitza(const string& nomFitxer)
 
 		switch (tTipus)
 		{
-			case FIGURA_O:
-				tColor = COLOR_GROC; break;
-			case FIGURA_I:
-				tColor = COLOR_BLAUCEL; break;
-			case FIGURA_T:
-				tColor = COLOR_MAGENTA; break;
-			case FIGURA_L:
-				tColor = COLOR_TARONJA; break;
-			case FIGURA_J:
-				tColor = COLOR_BLAUFOSC; break;
-			case FIGURA_Z:
-				tColor = COLOR_VERMELL; break;
-			case FIGURA_S:
-				tColor = COLOR_VERD; break;
+		case FIGURA_O:
+			tColor = COLOR_GROC; break;
+		case FIGURA_I:
+			tColor = COLOR_BLAUCEL; break;
+		case FIGURA_T:
+			tColor = COLOR_MAGENTA; break;
+		case FIGURA_L:
+			tColor = COLOR_TARONJA; break;
+		case FIGURA_J:
+			tColor = COLOR_BLAUFOSC; break;
+		case FIGURA_Z:
+			tColor = COLOR_VERMELL; break;
+		case FIGURA_S:
+			tColor = COLOR_VERD; break;
 		}
 
 		m_figura.inicialitza(tColor, tTipus);
-		m_figura.setPosicioX(x-1);
-		m_figura.setPosicioY(y-1);
+		m_figura.setPosicioX(x - 1);
+		m_figura.setPosicioY(y - 1);
 
 		for (int i = 0; i < rotacio; i++)
 		{
@@ -70,22 +70,22 @@ void Joc::escriuTauler(const string& nomFitxer)
 	for (int i = 0; i < MAX_FILA; i++)
 	{
 		for (int j = 0; j < MAX_COL; j++)
-    	{
-    		matriu_final[i][j] = m_tauler.getTauler(i, j);
-    	}
+		{
+			matriu_final[i][j] = m_tauler.getTauler(i, j);
+		}
 	}
-    
-    if (m_figura.getTipus() != NO_FIGURA)
-    {
-    	for (int i = 0; i < m_figura.getTamany(); i++)
-    		for (int j = 0; j < m_figura.getTamany(); j++)
-    	{
-    		if (m_figura.getFigura(i, j) != 0)
-    		{
-    			matriu_final[m_figura.getPosicioY() + i][m_figura.getPosicioX() + j] = m_figura.getFigura(i, j);
-    		}
-    	}
-    }
+
+	if (m_figura.getTipus() != NO_FIGURA)
+	{
+		for (int i = 0; i < m_figura.getTamany(); i++)
+			for (int j = 0; j < m_figura.getTamany(); j++)
+			{
+				if (m_figura.getFigura(i, j) != 0)
+				{
+					matriu_final[m_figura.getPosicioY() + i][m_figura.getPosicioX() + j] = m_figura.getFigura(i, j);
+				}
+			}
+	}
 
 	ofstream fitxer;
 	fitxer.open(nomFitxer);
@@ -115,7 +115,7 @@ bool Joc::comprovaEspai()
 		tauler_aux[i][MAX_COL + 2] = NO_COLOR;
 		tauler_aux[i][MAX_COL + 3] = NO_COLOR;
 	}
-		
+
 	for (int j = 0; j < MAX_COL + 4; j++)
 	{
 		tauler_aux[0][j] = NO_COLOR;
@@ -123,12 +123,12 @@ bool Joc::comprovaEspai()
 		tauler_aux[MAX_FILA + 2][j] = NO_COLOR;
 		tauler_aux[MAX_FILA + 3][j] = NO_COLOR;
 	}
-	
+
 	for (int i = 2; i < MAX_FILA + 2; i++)
-	    for(int j = 2; j < MAX_COL + 2; j++)
-    	{
-    		tauler_aux[i][j] = m_tauler.getTauler(i-2, j-2);
-    	}
+		for (int j = 2; j < MAX_COL + 2; j++)
+		{
+			tauler_aux[i][j] = m_tauler.getTauler(i - 2, j - 2);
+		}
 
 	for (int i = 0; i < m_figura.getTamany(); i++)
 		for (int j = 0; j < m_figura.getTamany(); j++)
@@ -154,13 +154,13 @@ bool Joc::giraFigura(DireccioGir direccio)
 	{
 		switch (direccio)
 		{
-			case GIR_HORARI:
-				m_figura.giraFigura(GIR_ANTI_HORARI); break;
-			case GIR_ANTI_HORARI:
-				m_figura.giraFigura(GIR_HORARI); break;
+		case GIR_HORARI:
+			m_figura.giraFigura(GIR_ANTI_HORARI); break;
+		case GIR_ANTI_HORARI:
+			m_figura.giraFigura(GIR_HORARI); break;
 		}
 	}
-	
+
 	return moviment_valid;
 }
 
@@ -168,7 +168,7 @@ bool Joc::mouFigura(int dirX)
 {
 	m_figura.setPosicioX(m_figura.getPosicioX() + dirX);
 	bool moviment_valid = comprovaEspai();
-	
+
 	if (!moviment_valid)
 	{
 		m_figura.setPosicioX(m_figura.getPosicioX() - dirX);
