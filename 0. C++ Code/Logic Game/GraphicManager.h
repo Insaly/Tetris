@@ -1,19 +1,13 @@
-//
-//  GraphicManager.hpp
-//  MP_Practica
-//
-//  Created by Enric Vergara on 13/03/2021.
-//  Copyright © 2021 CompiledCreations. All rights reserved.
-//
-
 #ifndef GraphicManager_hpp
 #define GraphicManager_hpp
 
-#include "../Graphic Lib/libreria.h"
-#include "../Graphic Lib/NFont/NFont.h"
 #include <stdio.h>
 #include <string>
 #include <map>
+
+#include "../Graphic Lib/libreria.h"
+#include "../Graphic Lib/NFont/NFont.h"
+
 using namespace std;
 
 

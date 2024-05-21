@@ -1,6 +1,7 @@
 #ifndef INFO_JOC_H
 #define INFO_JOC_H
 
+// Tipus de tecles
 typedef enum
 {
     TECLA_ESQUERRA,
@@ -13,6 +14,8 @@ typedef enum
 } TipusTecla;
 
 const int N_TIPUS_FIGURES = 7;
+
+// Colors d'una figura
 
 typedef enum
 {
@@ -27,6 +30,8 @@ typedef enum
     NO_COLOR
 } ColorFigura;
 
+
+// Formes d'una figura
 typedef enum
 {
     NO_FIGURA = 0,
@@ -39,7 +44,14 @@ typedef enum
     FIGURA_S
 } TipusFigura;
 
-// Tamany de la pantalla gràfica
+// Tipus de girs
+typedef enum
+{
+    GIR_HORARI = 0,
+    GIR_ANTI_HORARI
+} DireccioGir;
+
+// Tamany de la pantalla grï¿½fica
 const int SCREEN_SIZE_X = 600;
 const int SCREEN_SIZE_Y = 700;
 
@@ -50,7 +62,7 @@ const int MIDA_QUADRAT = 26;
 const int N_FILES_TAULER = 21;
 const int N_COL_TAULER = 11;
 
-// Posició del tauler a la pantalla
+// Posiciï¿½ del tauler a la pantalla
 const int POS_X_TAULER = 120;
 const int POS_Y_TAULER = 100;
 

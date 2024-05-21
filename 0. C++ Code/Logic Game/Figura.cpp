@@ -1,4 +1,4 @@
-#include "Figura.h"
+#include "./Figura.h"
 
 Figura::Figura()
 {

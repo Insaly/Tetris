@@ -1,13 +1,6 @@
-//
-//  GraphicManager.cpp
-//  MP_Practica
-//
-//  Created by Enric Vergara on 13/03/2021.
-//  Copyright © 2021 CompiledCreations. All rights reserved.
-//
-
-#include "GraphicManager.h"
 #include <iostream>
+
+#include "./GraphicManager.h"
 
 GraphicManager* GraphicManager::instance=NULL;
 

@@ -1,9 +1,8 @@
 #ifndef TAULER_H
 #define TAULER_H
-#include "Figura.h"
 
-const int MAX_FILA = 8;
-const int MAX_COL = 8;
+#include "./InfoJoc.h"
+#include "./Figura.h"
 
 class Tauler
 {
@@ -15,6 +14,6 @@ public:
 private:
 	bool filaPlena(int fila);
 	void eliminaFila(int fila);
-	ColorFigura tauler[MAX_FILA][MAX_COL];
+	ColorFigura tauler[N_FILES_TAULER][N_COL_TAULER];
 };
 #endif

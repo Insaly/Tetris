@@ -1,10 +1,11 @@
-#include "Tauler.h"
+#include "./Tauler.h"
+
 Tauler::Tauler()
 {
-	for (int i = 0; i < MAX_FILA; i++)
-		for (int j = 0; j < MAX_COL; j++)
+	for (int i = 0; i < N_FILES_TAULER; i++)
+		for (int j = 0; j < N_COL_TAULER; j++)
 		{
-			tauler[i][j] = NO_COLOR;
+			tauler[i][j] = COLOR_NEGRE;
 		}
 }
 
@@ -22,7 +23,7 @@ int Tauler::actualitzaTauler(Figura figura)
 
 	int ple = 0, fila = 0;
 
-	while (fila < MAX_FILA)
+	while (fila < N_FILES_TAULER)
 	{
 		if (filaPlena(fila))
 		{
@@ -43,7 +44,7 @@ bool Tauler::filaPlena(int fila)
 	bool plena = true;
 	int columna = 0;
 
-	while (plena && columna < MAX_COL)
+	while (plena && columna < N_COL_TAULER)
 	{
 		if (tauler[fila][columna] == COLOR_NEGRE)
 		{
@@ -61,13 +62,13 @@ void Tauler::eliminaFila(int fila)
 {
 	for (int index = fila; index > 0; index--)
 	{
-		for (int columna = 0; columna < MAX_COL; columna++)
+		for (int columna = 0; columna < N_COL_TAULER; columna++)
 		{
 			tauler[index][columna] = tauler[index-1][columna];
 		}
 	}
 
-	for (int columna = 0; columna < MAX_COL; columna++)
+	for (int columna = 0; columna < N_COL_TAULER; columna++)
 	{
 		tauler[0][columna] = COLOR_NEGRE;
 	}
