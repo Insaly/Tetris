@@ -1,24 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Tetris\\2. Platforms\\0. Windows Desktop\\",
+  "WorkspaceRootPath": "C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\2. Platforms\\0. Windows Desktop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Joc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Joc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Figura.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Partida.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Tauler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Joc.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Figura.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\InfoJoc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Partida.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Joc.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Partida.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,85 +25,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Joc.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Joc.cpp",
-              "RelativeDocumentMoniker": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Joc.cpp",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Joc.cpp",
-              "RelativeToolTip": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Joc.cpp",
-              "ViewState": "AQIAANgAAAAAAAAAAAAAAPAAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-20T20:05:58.928Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Joc.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Joc.h",
+              "DocumentMoniker": "C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Joc.h",
               "RelativeDocumentMoniker": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Joc.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Joc.h",
+              "ToolTip": "C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Joc.h",
               "RelativeToolTip": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Joc.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-20T19:44:32.897Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Figura.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Figura.cpp",
-              "RelativeDocumentMoniker": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Figura.cpp",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Figura.cpp",
-              "RelativeToolTip": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Figura.cpp",
-              "ViewState": "AQIAAEsAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-21T18:11:25.002Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Tauler.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Tauler.cpp",
-              "RelativeDocumentMoniker": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Tauler.cpp",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Tauler.cpp",
-              "RelativeToolTip": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Tauler.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-21T18:04:34.879Z",
+              "WhenOpened": "2024-05-22T08:02:01.371Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Figura.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Figura.h",
-              "RelativeDocumentMoniker": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Figura.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Figura.h",
-              "RelativeToolTip": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Figura.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAUAAAA",
+              "Title": "InfoJoc.h",
+              "DocumentMoniker": "C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\InfoJoc.h",
+              "RelativeDocumentMoniker": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\InfoJoc.h",
+              "ToolTip": "C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\InfoJoc.h",
+              "RelativeToolTip": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\InfoJoc.h",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-21T15:57:50.314Z",
+              "WhenOpened": "2024-05-22T08:03:31.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Partida.h",
+              "DocumentMoniker": "C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Partida.h",
+              "RelativeDocumentMoniker": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Partida.h",
+              "ToolTip": "C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Partida.h",
+              "RelativeToolTip": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Partida.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-22T07:17:37.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Joc.cpp",
+              "DocumentMoniker": "C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Joc.cpp",
+              "RelativeDocumentMoniker": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Joc.cpp",
+              "ToolTip": "C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Joc.cpp",
+              "RelativeToolTip": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Joc.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-22T06:37:26.699Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Partida.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Partida.cpp",
+              "DocumentMoniker": "C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Partida.cpp",
               "RelativeDocumentMoniker": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Partida.cpp",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Partida.cpp",
+              "ToolTip": "C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Partida.cpp",
               "RelativeToolTip": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Partida.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAqAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-20T15:57:08.662Z",
+              "WhenOpened": "2024-05-22T06:33:34.791Z",
               "EditorCaption": ""
             }
           ]

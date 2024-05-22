@@ -18,6 +18,7 @@ public:
 private:
     int puntuacio;
     int nivell;
+    int punts;
     double m_temps;
     Joc m_joc;
 };

@@ -13,24 +13,14 @@ void Joc::actualitza()
 	ColorFigura matriu_final[N_FILES_TAULER][N_COL_TAULER];
 
 	for (int i = 0; i < N_FILES_TAULER; i++)
-	{
 		for (int j = 0; j < N_COL_TAULER; j++)
-		{
 			matriu_final[i][j] = m_tauler.getTauler(i, j);
-		}
-	}
 
 	if (m_figura.getTipus() != NO_FIGURA)
-	{
 		for (int i = 0; i < m_figura.getTamany(); i++)
 			for (int j = 0; j < m_figura.getTamany(); j++)
-			{
 				if (m_figura.getFigura(i, j) != 0)
-				{
 					matriu_final[m_figura.getPosicioY() + i][m_figura.getPosicioX() + j] = m_figura.getFigura(i, j);
-				}
-			}
-	}
 
 	for (int i = 0; i < N_FILES_TAULER; i++)
         for (int j = 0; j < N_COL_TAULER; j++)
@@ -49,7 +39,7 @@ void Joc::actualitza()
 			}
 
 			if (color != GRAFIC_NUM_MAX)
-				GraphicManager::getInstance()->drawSprite(color, POS_X_TAULER + ((j + 1) * MIDA_QUADRAT), POS_Y_TAULER + ((i)*MIDA_QUADRAT), false);
+				GraphicManager::getInstance()->drawSprite(color, POS_X_TAULER + ((j + 1) * MIDA_QUADRAT), POS_Y_TAULER + ((i) * MIDA_QUADRAT), false);
 		}
 
 	string msg = "Fila: " + to_string(m_figura.getPosicioY()) + ", Columna: " + to_string(m_figura.getPosicioX());
@@ -112,47 +102,6 @@ void Joc::inicialitza(const string& nomFitxer)
 			}
 		}
 
-		fitxer.close();
-	}
-}
-
-void Joc::escriuTauler(const string& nomFitxer)
-{
-
-	ColorFigura matriu_final[N_FILES_TAULER][N_COL_TAULER];
-
-	for (int i = 0; i < N_FILES_TAULER; i++)
-	{
-		for (int j = 0; j < N_COL_TAULER; j++)
-		{
-			matriu_final[i][j] = m_tauler.getTauler(i, j);
-		}
-	}
-
-	if (m_figura.getTipus() != NO_FIGURA)
-	{
-		for (int i = 0; i < m_figura.getTamany(); i++)
-			for (int j = 0; j < m_figura.getTamany(); j++)
-			{
-				if (m_figura.getFigura(i, j) != 0)
-				{
-					matriu_final[m_figura.getPosicioY() + i][m_figura.getPosicioX() + j] = m_figura.getFigura(i, j);
-				}
-			}
-	}
-
-	ofstream fitxer;
-	fitxer.open(nomFitxer);
-	if (fitxer.is_open())
-	{
-		for (int i = 0; i < N_FILES_TAULER; i++)
-		{
-			for (int j = 0; j < N_COL_TAULER; j++)
-			{
-				fitxer << matriu_final[i][j] << " ";
-			}
-			fitxer << endl;
-		}
 		fitxer.close();
 	}
 }
