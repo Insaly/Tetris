@@ -51,7 +51,7 @@ int main(int argc, const char* argv[])
         // Captura tots els events de ratolí i teclat de l'ultim cicle
         pantalla.processEvents();
 
-        game.actualitza(deltaTime);
+        game.actualitza(deltaTime, NO_TECLA);
 
         // Actualitza la pantalla
         pantalla.update();

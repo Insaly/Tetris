@@ -22,9 +22,7 @@ void Figura::inicialitza(ColorFigura n_color, TipusFigura n_figura)
 
     for (int i = 0; i < MAX_AMPLADA; i++)
         for (int j = 0; j < MAX_ALCADA; j++)
-    {
-        figura[i][j] = COLOR_NEGRE;
-    }
+            figura[i][j] = COLOR_NEGRE;
 
     switch (n_figura)
     {

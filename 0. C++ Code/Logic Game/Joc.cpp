@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "./Joc.h"
 
 using namespace std;
@@ -53,32 +51,12 @@ void Joc::inicialitza(const string& nomFitxer)
 	if (fitxer.is_open())
 	{
 		m_figura.inicialitza(COLOR_NEGRE, NO_FIGURA);
-		int y, x, rotacio, iTipus;
 
-		fitxer >> iTipus >> y >> x >> rotacio;
+		int figura, y, x, rotacio;
 
-		TipusFigura tTipus = TipusFigura(iTipus);
-		ColorFigura tColor = NO_COLOR;
+		fitxer >> figura >> y >> x >> rotacio;
 
-		switch (tTipus)
-		{
-		case FIGURA_O:
-			tColor = COLOR_GROC; break;
-		case FIGURA_I:
-			tColor = COLOR_BLAUCEL; break;
-		case FIGURA_T:
-			tColor = COLOR_MAGENTA; break;
-		case FIGURA_L:
-			tColor = COLOR_TARONJA; break;
-		case FIGURA_J:
-			tColor = COLOR_BLAUFOSC; break;
-		case FIGURA_Z:
-			tColor = COLOR_VERMELL; break;
-		case FIGURA_S:
-			tColor = COLOR_VERD; break;
-		}
-
-		m_figura.inicialitza(tColor, tTipus);
+		m_figura.inicialitza(ColorFigura(figura), TipusFigura(figura));
 		m_figura.setPosicioX(x - 1);
 		m_figura.setPosicioY(y - 1);
 

@@ -1,16 +1,2 @@
-﻿  Joc.cpp
-C:\Users\lluc\Desktop\Uni\MP\Tetris\0. C++ Code\Logic Game\Joc.h(19,20): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  (compilando archivo de origen "../../0.%20C++%20Code/Logic%20Game/Joc.cpp")
-  
-C:\Users\lluc\Desktop\Uni\MP\Tetris\0. C++ Code\Logic Game\Joc.cpp(42,108): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\lluc\Desktop\Uni\MP\Tetris\0. C++ Code\Logic Game\Joc.cpp(42,67): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  Partida.cpp
-C:\Users\lluc\Desktop\Uni\MP\Tetris\0. C++ Code\Logic Game\Joc.h(19,20): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  (compilando archivo de origen "../../0.%20C++%20Code/Logic%20Game/Partida.cpp")
-  
-  main.cpp
-C:\Users\lluc\Desktop\Uni\MP\Tetris\0. C++ Code\Logic Game\Joc.h(19,20): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  (compilando archivo de origen "../../0.%20C++%20Code/Logic%20Game/main.cpp")
-  
-  Generando código...
-  MP_Practica.vcxproj -> C:\Users\lluc\Desktop\Uni\MP\Tetris\2. Platforms\0. Windows Desktop\Program\MP_Practica.exe
+﻿  Tetris.cpp
+C:\Users\lluc\Desktop\Uni\MP\Tetris\0. C++ Code\Logic Game\Tetris.cpp(3,6): error C1004: se encontró un final de archivo no esperado

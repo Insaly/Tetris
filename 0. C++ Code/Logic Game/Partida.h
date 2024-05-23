@@ -14,7 +14,7 @@ class Partida
 {
 public:
     Partida();
-    void actualitza(double deltaTime);
+    void actualitza(double deltaTime, TipusTecla tecla);
 private:
     int puntuacio;
     int nivell;

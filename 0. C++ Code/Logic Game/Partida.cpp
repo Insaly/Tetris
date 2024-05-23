@@ -1,8 +1,5 @@
 #include "./Partida.h"
 
-#include <string>
-#include <iostream>
-
 Partida::Partida()
 {
     puntuacio = 0;
@@ -11,21 +8,21 @@ Partida::Partida()
     punts = 0;
 }
 
-void Partida::actualitza(double deltaTime)
+void Partida::actualitza(double deltaTime, TipusTecla tecla)
 {
-    if (Keyboard_GetKeyTrg(KEYBOARD_RIGHT))
+    if (Keyboard_GetKeyTrg(KEYBOARD_RIGHT) || tecla == TECLA_DRETA)
         m_joc.mouFigura(1);
 
-    if (Keyboard_GetKeyTrg(KEYBOARD_LEFT))
+    if (Keyboard_GetKeyTrg(KEYBOARD_LEFT) || tecla == TECLA_ESQUERRA)
         m_joc.mouFigura(-1);
 
-    if (Keyboard_GetKeyTrg(KEYBOARD_A))
+    if (Keyboard_GetKeyTrg(KEYBOARD_UP) || tecla == TECLA_AMUNT)
         m_joc.giraFigura(GIR_HORARI);
 
-    if (Keyboard_GetKeyTrg(KEYBOARD_B))
+    if (Keyboard_GetKeyTrg(KEYBOARD_DOWN) || tecla == TECLA_ABAIX)
         m_joc.giraFigura(GIR_ANTI_HORARI);
 
-    if (Keyboard_GetKeyTrg(KEYBOARD_DOWN))
+    if (Keyboard_GetKeyTrg(KEYBOARD_TAB))
     {
         punts = m_joc.baixaFigura();
         if (punts != -1)

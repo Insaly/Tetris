@@ -16,7 +16,6 @@ typedef enum
 const int N_TIPUS_FIGURES = 7;
 
 // Colors d'una figura
-
 typedef enum
 {
     COLOR_NEGRE = 0,
