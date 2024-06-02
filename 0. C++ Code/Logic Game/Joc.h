@@ -11,8 +11,6 @@
 #include "./Figura.h"
 #include "./GraphicManager.h"
 
-using namespace std;
-
 class Joc
 {
 public:
@@ -20,8 +18,8 @@ public:
 	void inicialitza(const string& nomFitxer);
 	void actualitza();
 	void novaFigura() { int random = (rand() % 7 + 1); m_figura.inicialitza(ColorFigura(random), TipusFigura(random)); m_figura.setPosicioX(3); m_figura.setPosicioY(0); }
-	bool giraFigura(DireccioGir direccio);
-	bool mouFigura(int dirX);
+	bool giraFigura(const DireccioGir& direccio);
+	bool mouFigura(const int& dirX);
 	int baixaFigura();
 private:
 	bool comprovaEspai();

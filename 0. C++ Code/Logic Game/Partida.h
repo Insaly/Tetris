@@ -8,17 +8,15 @@
 #include "./Joc.h"
 #include "./GraphicManager.h"
 
-using namespace std;
-
 class Partida 
 {
 public:
     Partida();
-    void actualitza(double deltaTime, TipusTecla tecla);
+    void actualitza(const double& deltaTime, const TipusTecla& tecla);
 private:
+    bool puntua(const int& punts);
     int puntuacio;
     int nivell;
-    int punts;
     double m_temps;
     Joc m_joc;
 };

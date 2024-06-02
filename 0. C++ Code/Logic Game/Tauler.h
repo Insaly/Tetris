@@ -8,12 +8,12 @@ class Tauler
 {
 public:
 	Tauler();
-	void setTauler(ColorFigura color, int x, int y) { tauler[x][y] = color; }
-	ColorFigura getTauler(int x, int y) const { return tauler[x][y]; }
-	int actualitzaTauler(Figura figura);
+	void setTauler(const ColorFigura& color, const int& x, const int& y) { tauler[x][y] = color; }
+	ColorFigura getTauler(const int& x, const int& y) const { return tauler[x][y]; }
+	int actualitzaTauler(const Figura& figura);
 private:
-	bool filaPlena(int fila);
-	void eliminaFila(int fila);
+	bool filaPlena(const int& fila);
+	void eliminaFila(const int& fila);
 	ColorFigura tauler[N_FILES_TAULER][N_COL_TAULER];
 };
 #endif

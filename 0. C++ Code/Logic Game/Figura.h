@@ -13,8 +13,8 @@ public:
     void inicialitza(ColorFigura n_color, TipusFigura n_figura);
     void giraFigura(const DireccioGir& direccio);
 
-    void setPosicioX(int x) { posicio_x = x; }
-    void setPosicioY(int y) { posicio_y = y; }
+    void setPosicioX(const int& x) { posicio_x = x; }
+    void setPosicioY(const int& y) { posicio_y = y; }
     int getPosicioX() const { return posicio_x; }
     int getPosicioY() const { return posicio_y; }
     int getTamany() const { return tamany; }

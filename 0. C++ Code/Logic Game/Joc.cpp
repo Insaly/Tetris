@@ -1,7 +1,5 @@
 #include "./Joc.h"
 
-using namespace std;
-
 void Joc::actualitza()
 {
 
@@ -126,7 +124,7 @@ bool Joc::comprovaEspai()
 	return moviment_valid;
 }
 
-bool Joc::giraFigura(DireccioGir direccio)
+bool Joc::giraFigura(const DireccioGir& direccio)
 {
 	m_figura.giraFigura(direccio);
 	bool moviment_valid = comprovaEspai();
@@ -145,7 +143,7 @@ bool Joc::giraFigura(DireccioGir direccio)
 	return moviment_valid;
 }
 
-bool Joc::mouFigura(int dirX)
+bool Joc::mouFigura(const int& dirX)
 {
 	m_figura.setPosicioX(m_figura.getPosicioX() + dirX);
 	bool moviment_valid = comprovaEspai();
