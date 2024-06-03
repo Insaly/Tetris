@@ -1,8 +1,12 @@
 #include "./Partida.h"
 
+#include <iostream>
+using namespace std;
+
 Partida::Partida()
 {
     srand(time(NULL));
+    game_over = false;
     nivell = 1;
     puntuacio = 0;
     m_mode = 0;
@@ -28,6 +32,18 @@ void Partida::inicialitza(int mode, const string& fitxerInicial, const string& f
             }
             fitxer.close();
         }
+        
+        fitxer.open(fitxerMoviments);
+        if (fitxer.is_open())
+        {
+            int moviment;
+            while (!fitxer.eof())
+            {
+                fitxer >> moviment;
+                m_moviments.afegeix(TipusTecla(moviment));
+            }
+            fitxer.close();
+        }
     }
     else
     {
@@ -38,40 +54,62 @@ void Partida::inicialitza(int mode, const string& fitxerInicial, const string& f
 
 void Partida::actualitza(const double& deltaTime)
 {
-    TipusTecla tecla = NO_TECLA;
-    if (Keyboard_GetKeyTrg(KEYBOARD_RIGHT) || tecla == TECLA_DRETA)
-        m_joc.mouFigura(1);
-
-    if (Keyboard_GetKeyTrg(KEYBOARD_LEFT) || tecla == TECLA_ESQUERRA)
-        m_joc.mouFigura(-1);
-
-    if (Keyboard_GetKeyTrg(KEYBOARD_UP) || tecla == TECLA_AMUNT)
-        m_joc.giraFigura(GIR_HORARI);
-
-    if (Keyboard_GetKeyTrg(KEYBOARD_DOWN) || tecla == TECLA_ABAIX)
-        m_joc.giraFigura(GIR_ANTI_HORARI);
-
-    if (Keyboard_GetKeyTrg(KEYBOARD_TAB))
-        puntua(m_joc.baixaFigura());
-
-    if (Keyboard_GetKeyTrg(KEYBOARD_SPACE))
-        while (!puntua(m_joc.baixaFigura())) {}
-
-    m_temps += deltaTime;
-
-    if (m_temps > (0.5/nivell))
+    if (!game_over)
     {
-        puntua(m_joc.baixaFigura());
-        m_temps = 0.0;
+        TipusTecla tecla = NO_TECLA;
+        m_temps += deltaTime;
+
+        if (m_temps > (1 / nivell))
+        {
+            switch (m_mode)
+            {
+            case 0:
+                puntua(m_joc.baixaFigura());
+                break;
+            case 1:
+                if (!m_moviments.esBuida())
+                {
+                    tecla = m_moviments.getPrimer().getValor();
+                    m_moviments.treu();
+                }
+                else
+                    game_over = true;
+                break;
+            }
+            m_temps = 0.0;
+        }
+
+        if (puntuacio > 1000 * nivell)
+            nivell++;
+
+        if (Keyboard_GetKeyTrg(KEYBOARD_RIGHT) || tecla == TECLA_DRETA)
+            m_joc.mouFigura(1);
+
+        if (Keyboard_GetKeyTrg(KEYBOARD_LEFT) || tecla == TECLA_ESQUERRA)
+            m_joc.mouFigura(-1);
+
+        if (Keyboard_GetKeyTrg(KEYBOARD_UP) || tecla == TECLA_AMUNT)
+            m_joc.giraFigura(GIR_HORARI);
+
+        if (Keyboard_GetKeyTrg(KEYBOARD_DOWN) || tecla == TECLA_ABAIX)
+            m_joc.giraFigura(GIR_ANTI_HORARI);
+
+        if (Keyboard_GetKeyTrg(KEYBOARD_TAB) || tecla == TECLA_ESPAI)
+            puntua(m_joc.baixaFigura());
+
+        if (Keyboard_GetKeyTrg(KEYBOARD_SPACE) || tecla == TECLA_ESCAPE)
+            while (!puntua(m_joc.baixaFigura())) {}
+
+        m_joc.actualitza();
+
+        string msg = "Puntuacio: " + to_string(puntuacio) + ", Nivell: " + to_string(nivell);
+        GraphicManager::getInstance()->drawFont(FONT_WHITE_30, POS_X_TAULER, POS_Y_TAULER - 80, 1.0, msg);
     }
-
-    if (puntuacio > 1000 * nivell)
-        nivell++;
-
-    m_joc.actualitza();
-
-    string msg = "Puntuacio: " + to_string(puntuacio) + ", Nivell: " + to_string(nivell);
-    GraphicManager::getInstance()->drawFont(FONT_WHITE_30, POS_X_TAULER, POS_Y_TAULER - 80, 1.0, msg);
+    else
+    {
+        string msg = "GAME OVER!";
+        GraphicManager::getInstance()->drawFont(FONT_WHITE_30, 50, -80, 1.0, msg);
+    }
 }
 
 bool Partida::puntua(const int& punts)
@@ -86,6 +124,8 @@ bool Partida::puntua(const int& punts)
 
         m_joc.novaFigura(m_cua.getPrimer().getValor());
         m_cua.treu();
+        if (!m_joc.comprovaEspai())
+            game_over = true;
         puntuacio += 10;
         switch (punts)
         {
@@ -120,6 +160,34 @@ void CuaFigura::treu()
     if (!esBuida())
     {
         NodeFigura* aux = m_primer;
+        m_primer = m_primer->getSeguent();
+        delete aux;
+        if (m_primer == nullptr)
+            m_ultim = nullptr;
+    }
+}
+
+void CuaTecla::afegeix(TipusTecla valor)
+{
+    NodeTecla* nou = new NodeTecla;
+    nou->setValor(valor);
+    if (esBuida())
+    {
+        m_primer = nou;
+        m_ultim = nou;
+    }
+    else
+    {
+        m_ultim->setSeguent(nou);
+        m_ultim = nou;
+    }
+}
+
+void CuaTecla::treu()
+{
+    if (!esBuida())
+    {
+        NodeTecla* aux = m_primer;
         m_primer = m_primer->getSeguent();
         delete aux;
         if (m_primer == nullptr)

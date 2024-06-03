@@ -13,7 +13,7 @@
 class NodeFigura
 {
 public:
-    Figura getValor(){ return m_figura; }
+    Figura getValor() const { return m_figura; }
     NodeFigura* getSeguent() const { return m_seguent; }
     void setValor(const Figura& valor) { m_figura = valor; }
     void setSeguent(NodeFigura* seguent) { m_seguent = seguent; }
@@ -36,6 +36,32 @@ private:
     NodeFigura* m_ultim;
 }; 
 
+class NodeTecla
+{
+public:
+    TipusTecla getValor() const { return m_moviment; }
+    NodeTecla* getSeguent() const { return m_seguent; }
+    void setValor(const TipusTecla& valor) { m_moviment = valor; }
+    void setSeguent(NodeTecla* seguent) { m_seguent = seguent; }
+private:
+    TipusTecla m_moviment;
+    NodeTecla* m_seguent;
+};
+
+class CuaTecla
+{
+public:
+    CuaTecla() : m_primer(nullptr), m_ultim(nullptr) {}
+    void afegeix(TipusTecla valor);
+    void treu();
+    NodeTecla& getPrimer() const { if (!esBuida()) { return *m_primer; } };
+    NodeTecla& getUltim() const { if (!esBuida()) { return *m_ultim; } };
+    bool esBuida() const { return m_primer == nullptr; }
+private:
+    NodeTecla* m_primer;
+    NodeTecla* m_ultim;
+}; 
+
 class Partida 
 {
 public:
@@ -44,12 +70,14 @@ public:
     void actualitza(const double& deltaTime);
 private:
     bool puntua(const int& punts);
+    bool game_over;
     int puntuacio;
     int nivell;
     int m_mode;
     double m_temps;
     Joc m_joc;
     CuaFigura m_cua;
+    CuaTecla m_moviments;
 };
 
 #endif 

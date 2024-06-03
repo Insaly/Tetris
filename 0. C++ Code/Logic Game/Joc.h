@@ -17,8 +17,8 @@ public:
 	bool giraFigura(const DireccioGir& direccio);
 	bool mouFigura(const int& dirX);
 	int baixaFigura();
-private:
 	bool comprovaEspai();
+private:
 	Tauler m_tauler;
 	Figura m_figura;
 };

@@ -62,7 +62,7 @@ int main(int argc, const char* argv[])
     Tetris game;
 
     int opcio = 0, puntuacio = 0;
-    string fitxerPartida = "", fitxerFigures = "", fitxerMoviments = "";
+    string fitxerPartida = "", fitxerFigures = "", fitxerMoviments = "", fitxerPuntuacions = "./data/Games/puntuacions.txt";
     while (opcio != 4)
     {
         opcio = game.mostraMenu();
@@ -83,7 +83,7 @@ int main(int argc, const char* argv[])
             fitxerMoviments = "./data/Games/" + fitxerMoviments;
             puntuacio = jugant(fitxerPartida, fitxerFigures, fitxerMoviments, game, 1); break;
         case 3:
-            game.mostraPuntuacions(); break;
+            game.mostraPuntuacions(fitxerPuntuacions); break;
         }
     }
 
