@@ -15,9 +15,11 @@ Figura::Figura()
     }
 } 
 
-void Figura::inicialitza(ColorFigura n_color, TipusFigura n_figura)
+Figura::Figura(TipusFigura n_figura, int n_y, int n_x, int n_gir)
 {
-    color = n_color;
+    posicio_x = n_x;
+    posicio_y = n_y;
+    color = ColorFigura(n_figura);
     tipus = n_figura;
 
     for (int i = 0; i < MAX_AMPLADA; i++)
@@ -28,35 +30,38 @@ void Figura::inicialitza(ColorFigura n_color, TipusFigura n_figura)
     {
         case FIGURA_O:
             tamany = 2;
-            figura[0][0] = n_color; figura[0][1] = n_color; figura[1][0] = n_color; figura[1][1] = n_color;
+            figura[0][0] = color; figura[0][1] = color; figura[1][0] = color; figura[1][1] = color;
             break;
         case FIGURA_I:
             tamany = 4;
-            figura[1][0] = n_color; figura[1][1] = n_color; figura[1][2] = n_color; figura[1][3] = n_color;
+            figura[1][0] = color; figura[1][1] = color; figura[1][2] = color; figura[1][3] = color;
             break;
         case FIGURA_T:
             tamany = 3;
-            figura[0][1] = n_color; figura[1][0] = n_color; figura[1][1] = n_color; figura[1][2] = n_color;
+            figura[0][1] = color; figura[1][0] = color; figura[1][1] = color; figura[1][2] = color;
             break;
         case FIGURA_L:
             tamany = 3;
-            figura[0][2] = n_color; figura[1][0] = n_color; figura[1][1] = n_color; figura[1][2] = n_color;
+            figura[0][2] = color; figura[1][0] = color; figura[1][1] = color; figura[1][2] = color;
             break;
         case FIGURA_J:
             tamany = 3;
-            figura[0][0] = n_color; figura[1][0] = n_color; figura[1][1] = n_color; figura[1][2] = n_color;
+            figura[0][0] = color; figura[1][0] = color; figura[1][1] = color; figura[1][2] = color;
             break;
         case FIGURA_S:
             tamany = 3;
-            figura[0][1] = n_color; figura[0][2] = n_color; figura[1][0] = n_color; figura[1][1] = n_color;
+            figura[0][1] = color; figura[0][2] = color; figura[1][0] = color; figura[1][1] = color;
             break;
         case FIGURA_Z:
             tamany = 3;
-            figura[0][0] = n_color; figura[0][1] = n_color; figura[1][1] = n_color; figura[1][2] = n_color;
+            figura[0][0] = color; figura[0][1] = color; figura[1][1] = color; figura[1][2] = color;
             break;
         default:
             tamany = 4;
     }
+
+    for (int i = 0; i < n_gir; i++)
+        giraFigura(GIR_HORARI);
 }
 
 void Figura::giraFigura(const DireccioGir& direccio)

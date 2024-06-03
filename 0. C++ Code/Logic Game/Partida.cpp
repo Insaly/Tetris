@@ -2,13 +2,43 @@
 
 Partida::Partida()
 {
+    srand(time(NULL));
     nivell = 1;
     puntuacio = 0;
+    m_mode = 0;
     m_temps = 0;
 }
 
-void Partida::actualitza(const double& deltaTime, const TipusTecla& tecla)
+void Partida::inicialitza(int mode, const string& fitxerInicial, const string& fitxerFigures, const string& fitxerMoviments)
 {
+    m_mode = mode;
+    if (mode == 1)
+    {
+        m_joc.inicialitza(fitxerInicial);
+
+        fstream fitxer;
+        fitxer.open(fitxerFigures);
+        if (fitxer.is_open())
+        {
+            int tipus, fila, columna, gir;
+            while (!fitxer.eof())
+            {
+                fitxer >> tipus >> fila >> columna >> gir;
+                m_cua.afegeix(Figura(TipusFigura(tipus), fila, columna, gir));
+            }
+            fitxer.close();
+        }
+    }
+    else
+    {
+        m_joc.novaFigura(Figura(TipusFigura(rand() % 7 + 1), 1, 1, 0));
+        m_cua.afegeix(Figura(TipusFigura(rand() % 7 + 1), 1, 1, 0));
+    }
+}
+
+void Partida::actualitza(const double& deltaTime)
+{
+    TipusTecla tecla = NO_TECLA;
     if (Keyboard_GetKeyTrg(KEYBOARD_RIGHT) || tecla == TECLA_DRETA)
         m_joc.mouFigura(1);
 
@@ -49,7 +79,13 @@ bool Partida::puntua(const int& punts)
     bool puntuat = false;
     if (punts != -1)
     {
-        m_joc.novaFigura();
+        if (m_mode == 0)
+        {
+            m_cua.afegeix(Figura(TipusFigura(rand() % 7 + 1), 1, 1, 0));
+        }
+
+        m_joc.novaFigura(m_cua.getPrimer().getValor());
+        m_cua.treu();
         puntuacio += 10;
         switch (punts)
         {
@@ -61,4 +97,32 @@ bool Partida::puntua(const int& punts)
         puntuat = true;        
     }
     return puntuat;
+}
+
+void CuaFigura::afegeix(Figura valor)
+{
+    NodeFigura* nou = new NodeFigura;
+    nou->setValor(valor);
+    if (esBuida())
+    {
+        m_primer = nou;
+        m_ultim = nou;
+    }
+    else
+    {
+        m_ultim->setSeguent(nou);
+        m_ultim = nou;
+    }
+}
+
+void CuaFigura::treu()
+{
+    if (!esBuida())
+    {
+        NodeFigura* aux = m_primer;
+        m_primer = m_primer->getSeguent();
+        delete aux;
+        if (m_primer == nullptr)
+            m_ultim = nullptr;
+    }
 }

@@ -1,17 +1,2 @@
-﻿  Joc.cpp
-C:\Users\User\Desktop\Tetris\0. C++ Code\Logic Game\Joc.h(17,20): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  (compilando archivo de origen "../../0.%20C++%20Code/Logic%20Game/Joc.cpp")
-  
-C:\Users\User\Desktop\Tetris\0. C++ Code\Logic Game\Joc.cpp(38,108): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\User\Desktop\Tetris\0. C++ Code\Logic Game\Joc.cpp(38,67): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  Partida.cpp
-C:\Users\User\Desktop\Tetris\0. C++ Code\Logic Game\Joc.h(17,20): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  (compilando archivo de origen "../../0.%20C++%20Code/Logic%20Game/Partida.cpp")
-  
-  Tetris.cpp
-  main.cpp
-C:\Users\User\Desktop\Tetris\0. C++ Code\Logic Game\Joc.h(17,20): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  (compilando archivo de origen "../../0.%20C++%20Code/Logic%20Game/main.cpp")
-  
-  Generando código...
+﻿  Tetris.cpp
   MP_Practica.vcxproj -> C:\Users\User\Desktop\Tetris\2. Platforms\0. Windows Desktop\Program\MP_Practica.exe

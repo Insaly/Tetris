@@ -23,44 +23,70 @@
 
 #endif
 
+#include "./Tetris.h"
 #include "./Partida.h"
 
-
-int main(int argc, const char* argv[])
+int jugant(string fitxerPartida, string fitxerFigures, string fitxerMoviments, Tetris game, int mode)
 {
-    //Instruccions necesaries per poder incloure la llibreria i que trobi el main
-    SDL_SetMainReady();
-    SDL_Init(SDL_INIT_VIDEO);
-
-    //Inicialitza un objecte de la classe Screen que s'utilitza per gestionar la finestra grafica
     Screen pantalla(SCREEN_SIZE_X, SCREEN_SIZE_Y);
-    //Mostrem la finestra grafica
     pantalla.show();
-
-    Partida game;
 
     Uint64 NOW = SDL_GetPerformanceCounter();
     Uint64 LAST = 0;
     double deltaTime = 0;
+
+    game.inicialitzaPartida(mode, fitxerPartida, fitxerFigures, fitxerMoviments);
+ 
     do
     {
         LAST = NOW;
         NOW = SDL_GetPerformanceCounter();
         deltaTime = (double)((NOW - LAST) / (double)SDL_GetPerformanceFrequency());
 
-        // Captura tots els events de ratolí i teclat de l'ultim cicle
         pantalla.processEvents();
 
-        game.actualitza(deltaTime, NO_TECLA);
+        game.jugaPartida(deltaTime);
 
-        // Actualitza la pantalla
         pantalla.update();
 
     } while (!Keyboard_GetKeyTrg(KEYBOARD_ESCAPE));
-    // Sortim del bucle si pressionem ESC
 
-    //Instruccio necesaria per alliberar els recursos de la llibreria 
+    return game.getPuntuacio();
+}
+
+int main(int argc, const char* argv[])
+{
+    SDL_SetMainReady();
+    SDL_Init(SDL_INIT_VIDEO);
+
+    Tetris game;
+
+    int opcio = 0, puntuacio = 0;
+    string fitxerPartida = "", fitxerFigures = "", fitxerMoviments = "";
+    while (opcio != 4)
+    {
+        opcio = game.mostraMenu();
+        system("cls"); 
+        switch (opcio)
+        {
+        case 1:
+            puntuacio = jugant(fitxerPartida, fitxerFigures, fitxerMoviments, game, 0); break;
+        case 2:
+            cout << "Nom del fitxer amb l'estat inicial del tauler: ";
+            cin >> fitxerPartida;
+            cout << "Nom del fitxer amb la sequencia de figures: ";
+            cin >> fitxerFigures;
+            cout << "Nom del fitxer amb la sequencia de moviments: ";
+            cin >> fitxerMoviments;
+            fitxerPartida = "./data/Games/" + fitxerPartida;
+            fitxerFigures = "./data/Games/" + fitxerFigures;
+            fitxerMoviments = "./data/Games/" + fitxerMoviments;
+            puntuacio = jugant(fitxerPartida, fitxerFigures, fitxerMoviments, game, 1); break;
+        case 3:
+            game.mostraPuntuacions(); break;
+        }
+    }
+
     SDL_Quit();
     return 0;
 }
-

@@ -3,9 +3,6 @@
 
 #include <string>
 #include <fstream>
-#include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
 
 #include "./Tauler.h"
 #include "./Figura.h"
@@ -14,10 +11,9 @@
 class Joc
 {
 public:
-	Joc() { srand(time(NULL)); int random = (rand() % 7 + 1); m_figura.inicialitza(ColorFigura(random), TipusFigura(random)); m_figura.setPosicioX(3); m_figura.setPosicioY(0); }
 	void inicialitza(const string& nomFitxer);
 	void actualitza();
-	void novaFigura() { int random = (rand() % 7 + 1); m_figura.inicialitza(ColorFigura(random), TipusFigura(random)); m_figura.setPosicioX(3); m_figura.setPosicioY(0); }
+	void novaFigura(const Figura& novaFigura) { m_figura = novaFigura; }
 	bool giraFigura(const DireccioGir& direccio);
 	bool mouFigura(const int& dirX);
 	int baixaFigura();

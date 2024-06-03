@@ -48,13 +48,11 @@ void Joc::inicialitza(const string& nomFitxer)
 	fitxer.open(nomFitxer);
 	if (fitxer.is_open())
 	{
-		m_figura.inicialitza(COLOR_NEGRE, NO_FIGURA);
-
 		int figura, y, x, rotacio;
 
 		fitxer >> figura >> y >> x >> rotacio;
 
-		m_figura.inicialitza(ColorFigura(figura), TipusFigura(figura));
+		m_figura = Figura(TipusFigura(figura), y, x, 0);
 		m_figura.setPosicioX(x - 1);
 		m_figura.setPosicioY(y - 1);
 
@@ -166,7 +164,6 @@ int Joc::baixaFigura()
 	{
 		m_figura.setPosicioY(m_figura.getPosicioY() - 1);
 		files_plenes = m_tauler.actualitzaTauler(m_figura);
-		m_figura.inicialitza(COLOR_NEGRE, NO_FIGURA);
 	}
 
 	return files_plenes;
