@@ -4,7 +4,7 @@
 int Tetris::mostraMenu()
 {
     int opcio;
-    cout << "MENU PRINCIPAL" << endl;
+    cout << "Menu principal" << endl;
     cout << "==============" << endl;
     cout << "1. Joc en mode normal" << endl;
     cout << "2. Joc en mode test" << endl;
@@ -19,15 +19,17 @@ void Tetris::mostraPuntuacions(const string& nomFitxer)
     ifstream fitxer;
 
     fitxer.open(nomFitxer);
-    int x;
+    system("cls"); 
+    int x, i = 0;
     cout << "Llista millors puntuacions" << endl;
-    cout << "==========================" << endl;
-    for (int i = 0; i < 10; i++)
+    cout << "=========================="<< endl;
+    while (!fitxer.eof())
     {
         fitxer >> x;
-        cout << i + 1 << " " << x << endl;
+        cout << i + 1 << " - " << x << endl;
+        i++;
     }
-
+    cout << "==========================" << endl;
 }
 
 void Tetris::afegeixPuntuacio(int puntuacio, const string& nomFitxer)

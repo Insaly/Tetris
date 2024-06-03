@@ -54,12 +54,13 @@ void Partida::inicialitza(int mode, const string& fitxerInicial, const string& f
 
 void Partida::actualitza(const double& deltaTime)
 {
+    m_temps += deltaTime;
+
     if (!game_over)
     {
         TipusTecla tecla = NO_TECLA;
-        m_temps += deltaTime;
 
-        if (m_temps > (1 / nivell))
+        if (m_temps > (0.5 / nivell))
         {
             switch (m_mode)
             {
@@ -102,13 +103,21 @@ void Partida::actualitza(const double& deltaTime)
 
         m_joc.actualitza();
 
-        string msg = "Puntuacio: " + to_string(puntuacio) + ", Nivell: " + to_string(nivell);
-        GraphicManager::getInstance()->drawFont(FONT_WHITE_30, POS_X_TAULER, POS_Y_TAULER - 80, 1.0, msg);
+        string msgStats = "Puntuacio: " + to_string(puntuacio) + ", Nivell: " + to_string(nivell);
+        GraphicManager::getInstance()->drawFont(FONT_WHITE_30, POS_X_TAULER, POS_Y_TAULER - 80, 1.0, msgStats);
     }
     else
     {
-        string msg = "GAME OVER!";
-        GraphicManager::getInstance()->drawFont(FONT_WHITE_30, 50, -80, 1.0, msg);
+        GraphicManager::getInstance()->drawSprite(GRAFIC_FONS, 0, 0, false);
+        string msgGameOver = "GAME OVER!";
+        string msgPuntuacio = "Puntuació final: " + to_string(puntuacio);
+        string msgSortir = "Prem 'ESC' per a tornar al menú";
+        GraphicManager::getInstance()->drawFont(FONT_WHITE_30, POS_X_TAULER - 10, POS_Y_TAULER + 100, 2.0, msgGameOver);
+        GraphicManager::getInstance()->drawFont(FONT_WHITE_30, POS_X_TAULER + 30, POS_Y_TAULER + 200, 1.0, msgPuntuacio);
+        if (m_temps > 1)
+            GraphicManager::getInstance()->drawFont(FONT_WHITE_30, POS_X_TAULER - 35, POS_Y_TAULER + 350, 1.0, msgSortir);
+        if (m_temps > 2)
+            m_temps = 0;
     }
 }
 

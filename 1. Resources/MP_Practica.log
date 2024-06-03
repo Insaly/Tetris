@@ -1,4 +1,7 @@
-﻿  main.cpp
-  Tetris.cpp
+﻿  Partida.cpp
+C:\Users\User\Desktop\Tetris\0. C++ Code\Logic Game\Partida.cpp(8,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  main.cpp
   Generando código...
+C:\Users\User\Desktop\Tetris\0. C++ Code\Logic Game\Partida.h(31,1): warning C4715: 'CuaFigura::getPrimer': no todas las rutas de acceso de control devuelven un valor
+C:\Users\User\Desktop\Tetris\0. C++ Code\Logic Game\Partida.h(57,1): warning C4715: 'CuaTecla::getPrimer': no todas las rutas de acceso de control devuelven un valor
   MP_Practica.vcxproj -> C:\Users\User\Desktop\Tetris\2. Platforms\0. Windows Desktop\Program\MP_Practica.exe
