@@ -6,6 +6,11 @@
 
 #include "./Partida.h"
 
+struct Puntuacions{
+    int puntuacio;
+    string nom;
+};
+
 class Tetris
 {
 public:
@@ -14,13 +19,12 @@ public:
     void jugaPartida(string fitxerPartida, string fitxerFigures, string fitxerMoviments, int mode, Screen& pantalla);
 
     void inicialitzaPartida(int mode, const string& fitxerPartida, const string& fitxerFigures, const string& fitxerMoviments) { m_partida.inicialitza(mode, fitxerPartida, fitxerFigures, fitxerMoviments); }	
-    int getPuntuacio() { return puntuacio; }
-    void afegeixPuntuacio(int puntuacio, const string& nomFitxer);
+    void afegeixPuntuacio(int puntuacio, const string& nomFitxer, const string& nom);
 private:
     Partida m_partida;
-    int puntuacio;
-    std::forward_list <int> puntuacions;
-    std::forward_list <int> :: iterator actual,it;
+    Puntuacions puntuacio;
+    std::forward_list <Puntuacions> puntuacions;
+    std::forward_list <Puntuacions> :: iterator actual,it;
 };
 
 #endif 

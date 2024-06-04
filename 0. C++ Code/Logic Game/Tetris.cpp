@@ -42,13 +42,14 @@ void Tetris::mostraPuntuacions(const string& nomFitxer)
 
     fitxer.open(nomFitxer);
     system("cls"); 
-    int x, i = 0;
+    int i = 0;
+    Puntuacions x;
     cout << "==========================" << endl;
     cout << "Llista millors puntuacions" << endl;
     cout << "=========================="<< endl;
     while (!fitxer.eof())
     {
-        fitxer >> x;
+        fitxer >> x.nom >> x.puntuacio;
         puntuacions.push_front(x);
     }
 
@@ -57,34 +58,39 @@ void Tetris::mostraPuntuacions(const string& nomFitxer)
     it = puntuacions.end();
     while (actual != it)
     {
+        Puntuacions puntuacio=*actual;
         
-        cout << i + 1 << ". " <<  *actual << endl;
+
+        cout << i + 1 << ". " << puntuacio.nom  << " " <<puntuacio.puntuacio << endl;
         actual++;
         i++;
     }
 
 }
 
-void Tetris::afegeixPuntuacio(int puntuacio, const string& nomFitxer)
+void Tetris::afegeixPuntuacio(int puntuacio, const string& nomFitxer, const string& nom)
 {
     int i = 0;
     ifstream fitxer;
     fitxer.open(nomFitxer);
+    Puntuacions y;
+    y.nom = nom;
+    y.puntuacio = puntuacio;
 
 
     if (fitxer.is_open())
     {
         puntuacions.clear();
-        int x;
+        Puntuacions x;
         
         while (!fitxer.eof() )
         {
-            fitxer >> x;
+            fitxer >> x.nom >> x.puntuacio;
             puntuacions.push_front(x);   
         }
         fitxer.close();
     }
-    puntuacions.push_front(puntuacio);
+    puntuacions.push_front(y);
 
     puntuacions.sort(std::greater <int>());
 
@@ -109,8 +115,8 @@ void Tetris::afegeixPuntuacio(int puntuacio, const string& nomFitxer)
     {
         for (it=puntuacions.begin(); it != puntuacions.end(); it++)
         {
-            int puntuacio = *it;
-            fitxer1 << puntuacio << endl;
+            Puntuacions puntuacio = *it;
+            fitxer1 << puntuacio.nom <<" " << puntuacio.puntuacio << endl;
 
         }
         fitxer.close();
