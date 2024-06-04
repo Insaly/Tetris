@@ -4,11 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <string>
+#include <iostream>
 
-#include "./InfoJoc.h"
 #include "./Joc.h"
-#include "./GraphicManager.h"
 
 class NodeFigura
 {
@@ -28,8 +26,8 @@ public:
     CuaFigura() : m_primer(nullptr), m_ultim(nullptr) {}
     void afegeix(Figura valor);
     void treu();
-    NodeFigura& getPrimer() const { if (!esBuida()) { return *m_primer; } };
-    NodeFigura& getUltim() const { if (!esBuida()) { return *m_ultim; } };
+    NodeFigura* getPrimer() const { return m_primer; };
+    NodeFigura* getUltim() const { return m_ultim; };
     bool esBuida() const { return m_primer == nullptr; }
 private:
     NodeFigura* m_primer;
@@ -51,15 +49,17 @@ private:
 class CuaTecla
 {
 public:
-    CuaTecla() : m_primer(nullptr), m_ultim(nullptr) {}
+    CuaTecla() : m_primer(nullptr), m_ultim(nullptr), tamany(0) {}
     void afegeix(TipusTecla valor);
     void treu();
-    NodeTecla& getPrimer() const { if (!esBuida()) { return *m_primer; } };
-    NodeTecla& getUltim() const { if (!esBuida()) { return *m_ultim; } };
+    NodeTecla* getPrimer() const { return m_primer; };
+    NodeTecla* getUltim() const { return m_ultim; };
+    int getTamany() const { return tamany; }
     bool esBuida() const { return m_primer == nullptr; }
 private:
     NodeTecla* m_primer;
     NodeTecla* m_ultim;
+    int tamany;
 }; 
 
 class Partida 
@@ -68,9 +68,11 @@ public:
     Partida();
     void inicialitza(int mode, const string& fitxerInicial, const string& fitxerFigures, const string& fitxerMoviments);
     void actualitza(const double& deltaTime);
+    bool getQuit() const { return quit; }
 private:
     bool puntua(const int& punts);
     bool game_over;
+    bool quit;
     int puntuacio;
     int nivell;
     int m_mode;

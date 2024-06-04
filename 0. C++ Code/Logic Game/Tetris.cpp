@@ -1,18 +1,39 @@
 #include "./Tetris.h"
-#include <forward_list>
-
 
 int Tetris::mostraMenu()
 {
     int opcio;
+    cout << "==========================" << endl;
     cout << "Menu principal" << endl;
-    cout << "==============" << endl;
+    cout << "==========================" << endl;
     cout << "1. Joc en mode normal" << endl;
     cout << "2. Joc en mode test" << endl;
     cout << "3. Mostrar puntuacions" << endl;
     cout << "4. Sortir" << endl;
     cin >> opcio;
     return opcio;
+}
+
+void Tetris::jugaPartida(string fitxerPartida, string fitxerFigures, string fitxerMoviments, int mode, Screen& pantalla)
+{
+    pantalla.show();
+
+    Uint64 NOW = SDL_GetPerformanceCounter();
+    Uint64 LAST = 0;
+    double deltaTime = 0;
+
+    m_partida.inicialitza(mode, fitxerPartida, fitxerFigures, fitxerMoviments);
+
+    do
+    {
+        LAST = NOW;
+        NOW = SDL_GetPerformanceCounter();
+        deltaTime = (double)((NOW - LAST) / (double)SDL_GetPerformanceFrequency());
+        pantalla.processEvents();
+        m_partida.actualitza(deltaTime);
+        pantalla.update();
+
+    } while (!m_partida.getQuit());
 }
 
 void Tetris::mostraPuntuacions(const string& nomFitxer)
@@ -22,6 +43,7 @@ void Tetris::mostraPuntuacions(const string& nomFitxer)
     fitxer.open(nomFitxer);
     system("cls"); 
     int x, i = 0;
+    cout << "==========================" << endl;
     cout << "Llista millors puntuacions" << endl;
     cout << "=========================="<< endl;
     while (!fitxer.eof())
@@ -30,7 +52,6 @@ void Tetris::mostraPuntuacions(const string& nomFitxer)
         cout << i + 1 << " - " << /*nom << " " << */x << endl;
         i++;
     }
-    cout << "==========================" << endl;
 }
 
 void Tetris::afegeixPuntuacio(int puntuacio, const string& nomFitxer)

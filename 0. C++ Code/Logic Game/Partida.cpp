@@ -1,12 +1,10 @@
 #include "./Partida.h"
 
-#include <iostream>
-using namespace std;
-
 Partida::Partida()
 {
     srand(time(NULL));
     game_over = false;
+    quit = false;
     nivell = 1;
     puntuacio = 0;
     m_mode = 0;
@@ -16,6 +14,17 @@ Partida::Partida()
 void Partida::inicialitza(int mode, const string& fitxerInicial, const string& fitxerFigures, const string& fitxerMoviments)
 {
     m_mode = mode;
+    m_joc = Joc();
+    m_cua = CuaFigura();
+    m_moviments = CuaTecla();
+    srand(time(NULL));
+    game_over = false;
+    quit = false;
+    nivell = 1;
+    puntuacio = 0;
+    m_mode = mode;
+    m_temps = 0;
+
     if (mode == 1)
     {
         m_joc.inicialitza(fitxerInicial);
@@ -25,11 +34,8 @@ void Partida::inicialitza(int mode, const string& fitxerInicial, const string& f
         if (fitxer.is_open())
         {
             int tipus, fila, columna, gir;
-            while (!fitxer.eof())
-            {
-                fitxer >> tipus >> fila >> columna >> gir;
+            while (fitxer >> tipus >> fila >> columna >> gir)
                 m_cua.afegeix(Figura(TipusFigura(tipus), fila, columna, gir));
-            }
             fitxer.close();
         }
         
@@ -37,11 +43,8 @@ void Partida::inicialitza(int mode, const string& fitxerInicial, const string& f
         if (fitxer.is_open())
         {
             int moviment;
-            while (!fitxer.eof())
-            {
-                fitxer >> moviment;
+            while (fitxer >> moviment)
                 m_moviments.afegeix(TipusTecla(moviment));
-            }
             fitxer.close();
         }
     }
@@ -68,13 +71,15 @@ void Partida::actualitza(const double& deltaTime)
                 puntua(m_joc.baixaFigura());
                 break;
             case 1:
-                if (!m_moviments.esBuida())
+                if (!m_moviments.esBuida() && m_moviments.getPrimer() != nullptr && m_moviments.getTamany() > 0)
                 {
-                    tecla = m_moviments.getPrimer().getValor();
+                    tecla = m_moviments.getPrimer()->getValor();
                     m_moviments.treu();
                 }
                 else
+                {
                     game_over = true;
+                }
                 break;
             }
             m_temps = 0.0;
@@ -100,6 +105,9 @@ void Partida::actualitza(const double& deltaTime)
 
         if (Keyboard_GetKeyTrg(KEYBOARD_SPACE) || tecla == TECLA_ESCAPE)
             while (!puntua(m_joc.baixaFigura())) {}
+        
+        if (Keyboard_GetKeyTrg(KEYBOARD_ESCAPE) && !game_over)
+            game_over = true;
 
         m_joc.actualitza();
 
@@ -118,6 +126,9 @@ void Partida::actualitza(const double& deltaTime)
             GraphicManager::getInstance()->drawFont(FONT_WHITE_30, POS_X_TAULER - 35, POS_Y_TAULER + 350, 1.0, msgSortir);
         if (m_temps > 2)
             m_temps = 0;
+
+        if (Keyboard_GetKeyTrg(KEYBOARD_ESCAPE))
+            quit = true;
     }
 }
 
@@ -131,7 +142,7 @@ bool Partida::puntua(const int& punts)
             m_cua.afegeix(Figura(TipusFigura(rand() % 7 + 1), 1, 1, 0));
         }
 
-        m_joc.novaFigura(m_cua.getPrimer().getValor());
+        m_joc.novaFigura(m_cua.getPrimer()->getValor());
         m_cua.treu();
         if (!m_joc.comprovaEspai())
             game_over = true;
@@ -190,6 +201,7 @@ void CuaTecla::afegeix(TipusTecla valor)
         m_ultim->setSeguent(nou);
         m_ultim = nou;
     }
+    tamany++;
 }
 
 void CuaTecla::treu()
@@ -202,4 +214,5 @@ void CuaTecla::treu()
         if (m_primer == nullptr)
             m_ultim = nullptr;
     }
+    tamany--;
 }
