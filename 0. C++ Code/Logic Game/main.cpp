@@ -30,6 +30,7 @@ int main(int argc, const char* argv[])
 
     Screen pantalla(SCREEN_SIZE_X, SCREEN_SIZE_Y);
     Tetris game;
+    string nomJugador;
 
     int opcio = 0, puntuacio = 0;
     string fitxerPartida = "", fitxerFigures = "", fitxerMoviments = "", fitxerPuntuacions = "./data/Games/puntuacions.txt";
@@ -41,7 +42,9 @@ int main(int argc, const char* argv[])
         switch (opcio)
         {
         case 1:
-            game.jugaPartida(fitxerPartida, fitxerFigures, fitxerMoviments, 0, pantalla); break;
+            puntuacio = game.jugaPartida(fitxerPartida, fitxerFigures, fitxerMoviments, 0, pantalla);
+            cout << "Introdueix el nom del jugador: ";
+            cin >> nomJugador; game.afegeixPuntuacio(puntuacio, fitxerPuntuacions, nomJugador); break;
         case 2:
             cout << "Nom del fitxer amb l'estat inicial del tauler: ";
             cin >> fitxerPartida;

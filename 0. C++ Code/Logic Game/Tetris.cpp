@@ -1,5 +1,10 @@
 #include "./Tetris.h"
 
+bool comparar(const Puntuacions& a, const Puntuacions& b)
+{
+    return a.puntuacio > b.puntuacio;
+}
+
 int Tetris::mostraMenu()
 {
     int opcio;
@@ -14,7 +19,7 @@ int Tetris::mostraMenu()
     return opcio;
 }
 
-void Tetris::jugaPartida(string fitxerPartida, string fitxerFigures, string fitxerMoviments, int mode, Screen& pantalla)
+int Tetris::jugaPartida(string fitxerPartida, string fitxerFigures, string fitxerMoviments, int mode, Screen& pantalla)
 {
     pantalla.show();
 
@@ -34,6 +39,8 @@ void Tetris::jugaPartida(string fitxerPartida, string fitxerFigures, string fitx
         pantalla.update();
 
     } while (!m_partida.getQuit());
+
+    return m_partida.getPuntuacio();
 }
 
 void Tetris::mostraPuntuacions(const string& nomFitxer)
@@ -42,26 +49,30 @@ void Tetris::mostraPuntuacions(const string& nomFitxer)
 
     fitxer.open(nomFitxer);
     system("cls"); 
-    int i = 0;
-    Puntuacions x;
+
     cout << "==========================" << endl;
     cout << "Llista millors puntuacions" << endl;
     cout << "=========================="<< endl;
-    while (!fitxer.eof())
+
+    puntuacions = std::forward_list<Puntuacions>();
+    Puntuacions x;
+    while (fitxer >> x.nom >> x.puntuacio)
     {
-        fitxer >> x.nom >> x.puntuacio;
         puntuacions.push_front(x);
+        Puntuacions x;
     }
 
-    puntuacions.sort(std::greater <Puntuacions>());
+    puntuacions.sort(comparar);
+    
     actual = puntuacions.begin();
     it = puntuacions.end();
-    while (actual != it)
-    {
-        Puntuacions puntuacio=*actual;
-        
 
-        cout << i + 1 << ". " << puntuacio.nom  << " " <<puntuacio.puntuacio << endl;
+    int i = 0;
+
+    while (actual != it && i < 10)
+    {
+        Puntuacions puntuacio = *actual;
+        cout << i + 1 << ". " << puntuacio.nom  << " " << puntuacio.puntuacio << endl;
         actual++;
         i++;
     }
@@ -70,55 +81,12 @@ void Tetris::mostraPuntuacions(const string& nomFitxer)
 
 void Tetris::afegeixPuntuacio(int puntuacio, const string& nomFitxer, const string& nom)
 {
-    int i = 0;
-    ifstream fitxer;
-    fitxer.open(nomFitxer);
-    Puntuacions y;
-    y.nom = nom;
-    y.puntuacio = puntuacio;
-
+    ofstream fitxer;
+    fitxer.open(nomFitxer, ofstream::app);
 
     if (fitxer.is_open())
     {
-        puntuacions.clear();
-        Puntuacions x;
-        
-        while (!fitxer.eof() )
-        {
-            fitxer >> x.nom >> x.puntuacio;
-            puntuacions.push_front(x);   
-        }
-        fitxer.close();
-    }
-    puntuacions.push_front(y);
-
-    puntuacions.sort(std::greater <Puntuacions>());
-
-    while (i <= 10)
-    {
-        it = puntuacions.begin();
-
-        if (i == 10)
-        {
-            puntuacions.erase_after(it);
-        }
-        i++;
-        it++;
-    }
-
-
-    ofstream fitxer1;
-
-    fitxer1.open(nomFitxer);
-
-    if (fitxer.is_open())
-    {
-        for (it=puntuacions.begin(); it != puntuacions.end(); it++)
-        {
-            Puntuacions puntuacio = *it;
-            fitxer1 << puntuacio.nom <<" " << puntuacio.puntuacio << endl;
-
-        }
+        fitxer << nom << " " << to_string(puntuacio) << endl;
         fitxer.close();
     }
 }

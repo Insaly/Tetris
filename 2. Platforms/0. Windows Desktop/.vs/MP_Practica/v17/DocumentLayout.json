@@ -3,25 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Tetris\\2. Platforms\\0. Windows Desktop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Tetris.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO\\2022\\COMMUNITY\\VC\\TOOLS\\MSVC\\14.39.33519\\INCLUDE\\XUTILITY||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Tetris.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Partida.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Partida.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\InfoJoc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,95 +13,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "xutility",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xutility",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xutility",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xutility",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xutility",
-              "ViewState": "AQIAAIwBAAAAAAAAAAAswJ8BAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-06-04T16:46:53.52Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Tetris.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Tetris.cpp",
-              "RelativeDocumentMoniker": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Tetris.cpp",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Tetris.cpp",
-              "RelativeToolTip": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Tetris.cpp",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAFsAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-03T19:07:23.626Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "InfoJoc.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\InfoJoc.h",
-              "RelativeDocumentMoniker": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\InfoJoc.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\InfoJoc.h",
-              "RelativeToolTip": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\InfoJoc.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-06-03T16:44:40.182Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Tetris.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Tetris.h",
-              "RelativeDocumentMoniker": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Tetris.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Tetris.h",
-              "RelativeToolTip": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Tetris.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-06-03T15:11:44.72Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\main.cpp",
               "RelativeDocumentMoniker": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\main.cpp",
               "ToolTip": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\main.cpp",
               "RelativeToolTip": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\main.cpp",
-              "ViewState": "AQIAABkAAAAAAAAAAAAswCwAAAAPAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAmwCoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-06-03T13:36:17.72Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Partida.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Partida.h",
-              "RelativeDocumentMoniker": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Partida.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Partida.h",
-              "RelativeToolTip": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Partida.h",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAAsAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-06-03T11:05:19.451Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Partida.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Partida.cpp",
-              "RelativeDocumentMoniker": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Partida.cpp",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\Partida.cpp",
-              "RelativeToolTip": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\Partida.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-03T11:03:23.379Z"
             }
           ]
         }

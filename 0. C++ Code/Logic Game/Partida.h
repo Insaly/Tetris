@@ -69,6 +69,7 @@ public:
     void inicialitza(int mode, const string& fitxerInicial, const string& fitxerFigures, const string& fitxerMoviments);
     void actualitza(const double& deltaTime);
     bool getQuit() const { return quit; }
+    int getPuntuacio() const { return puntuacio; }
 private:
     bool puntua(const int& punts);
     bool game_over;

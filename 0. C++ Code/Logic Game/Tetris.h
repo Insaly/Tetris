@@ -9,7 +9,7 @@
 struct Puntuacions
 {
     int puntuacio = 0;
-    string nom =" ";
+    string nom = " ";
 };
 
 class Tetris
@@ -17,7 +17,7 @@ class Tetris
 public:
     int mostraMenu();
     void mostraPuntuacions(const string& nomFitxer);
-    void jugaPartida(string fitxerPartida, string fitxerFigures, string fitxerMoviments, int mode, Screen& pantalla);
+    int jugaPartida(string fitxerPartida, string fitxerFigures, string fitxerMoviments, int mode, Screen& pantalla);
 
     void inicialitzaPartida(int mode, const string& fitxerPartida, const string& fitxerFigures, const string& fitxerMoviments) { m_partida.inicialitza(mode, fitxerPartida, fitxerFigures, fitxerMoviments); }	
     void afegeixPuntuacio(int puntuacio, const string& nomFitxer, const string& nom);

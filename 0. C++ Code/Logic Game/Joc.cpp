@@ -37,9 +37,6 @@ void Joc::actualitza()
 			if (color != GRAFIC_NUM_MAX)
 				GraphicManager::getInstance()->drawSprite(color, POS_X_TAULER + ((j + 1) * MIDA_QUADRAT), POS_Y_TAULER + ((i) * MIDA_QUADRAT), false);
 		}
-
-	string msg = "Fila: " + to_string(m_figura.getPosicioY()) + ", Columna: " + to_string(m_figura.getPosicioX());
-	GraphicManager::getInstance()->drawFont(FONT_WHITE_30, POS_X_TAULER, POS_Y_TAULER - 50, 1.0, msg);
 }
 
 void Joc::inicialitza(const string& nomFitxer)
