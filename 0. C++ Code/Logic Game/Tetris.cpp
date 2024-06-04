@@ -1,6 +1,7 @@
 #include "./Tetris.h"
 #include <forward_list>
 
+
 int Tetris::mostraMenu()
 {
     int opcio;
@@ -26,7 +27,7 @@ void Tetris::mostraPuntuacions(const string& nomFitxer)
     while (!fitxer.eof())
     {
         fitxer >> x;
-        cout << i + 1 << " - " << x << endl;
+        cout << i + 1 << " - " << /*nom << " " << */x << endl;
         i++;
     }
     cout << "==========================" << endl;
@@ -38,8 +39,10 @@ void Tetris::afegeixPuntuacio(int puntuacio, const string& nomFitxer)
     ifstream fitxer;
     fitxer.open(nomFitxer);
 
+
     if (fitxer.is_open())
     {
+        puntuacions.clear();
         int x;
         
         while (!fitxer.eof() )
@@ -53,16 +56,9 @@ void Tetris::afegeixPuntuacio(int puntuacio, const string& nomFitxer)
 
     puntuacions.sort(std::greater <int>());
 
-    while (i <= 10)
+    while (distance(puntuacions.begin(), puntuacions.end()) > 10) 
     {
-        it = puntuacions.begin();
-     
-        if (i == 10)
-        {
-            puntuacions.erase_after(it);
-        }
-        i++;
-        it++;
+        puntuacions.pop_front();
     }
 
     ofstream fitxer1;
