@@ -49,9 +49,20 @@ void Tetris::mostraPuntuacions(const string& nomFitxer)
     while (!fitxer.eof())
     {
         fitxer >> x;
-        cout << i + 1 << " - " << /*nom << " " << */x << endl;
+        puntuacions.push_front(x);
+    }
+
+    puntuacions.sort(std::greater <int>());
+    actual = puntuacions.begin();
+    it = puntuacions.end();
+    while (actual != it)
+    {
+        
+        cout << i + 1 << ". " <<  *it << endl;
+        it++;
         i++;
     }
+
 }
 
 void Tetris::afegeixPuntuacio(int puntuacio, const string& nomFitxer)
