@@ -9,7 +9,7 @@
 struct Puntuacions
 {
     int puntuacio = 0;
-    string nom = "";
+    string nom =" ";
 };
 
 class Tetris
