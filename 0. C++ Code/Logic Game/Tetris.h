@@ -6,9 +6,10 @@
 
 #include "./Partida.h"
 
-struct Puntuacions{
-    int puntuacio;
-    string nom;
+struct Puntuacions
+{
+    int puntuacio = 0;
+    string nom = "";
 };
 
 class Tetris

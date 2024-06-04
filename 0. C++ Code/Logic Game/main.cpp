@@ -41,8 +41,7 @@ int main(int argc, const char* argv[])
         switch (opcio)
         {
         case 1:
-            game.jugaPartida(fitxerPartida, fitxerFigures, fitxerMoviments, 0, pantalla);
-            puntuacio = game.getPuntuacio(); break;
+            game.jugaPartida(fitxerPartida, fitxerFigures, fitxerMoviments, 0, pantalla); break;
         case 2:
             cout << "Nom del fitxer amb l'estat inicial del tauler: ";
             cin >> fitxerPartida;
