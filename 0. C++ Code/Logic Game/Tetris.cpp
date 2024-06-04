@@ -58,8 +58,8 @@ void Tetris::mostraPuntuacions(const string& nomFitxer)
     while (actual != it)
     {
         
-        cout << i + 1 << ". " <<  *it << endl;
-        it++;
+        cout << i + 1 << ". " <<  *actual << endl;
+        actual++;
         i++;
     }
 
@@ -88,10 +88,18 @@ void Tetris::afegeixPuntuacio(int puntuacio, const string& nomFitxer)
 
     puntuacions.sort(std::greater <int>());
 
-    while (distance(puntuacions.begin(), puntuacions.end()) > 10) 
+    while (i <= 10)
     {
-        puntuacions.pop_front();
+        it = puntuacions.begin();
+
+        if (i == 10)
+        {
+            puntuacions.erase_after(it);
+        }
+        i++;
+        it++;
     }
+
 
     ofstream fitxer1;
 
