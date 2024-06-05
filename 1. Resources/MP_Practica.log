@@ -1,24 +1,28 @@
-﻿  NFont.cpp
-  SDL_FontCache.cpp
+﻿  debug.cpp
   image_png.cpp
-C:\Users\User\Desktop\Tetris\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.cpp(205,25): warning C4309: '=': truncamiento de valor constante
-C:\Users\User\Desktop\Tetris\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.cpp(216,25): warning C4309: '=': truncamiento de valor constante
   keyboard.cpp
   mouse.cpp
+  NFont.cpp
+  SDL_FontCache.cpp
   sound.cpp
+C:\Users\lluc\Desktop\Uni\MP\Tetris\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.cpp(205,25): warning C4309: '=': truncamiento de valor constante
+C:\Users\lluc\Desktop\Uni\MP\Tetris\0. C++ Code\Graphic Lib\NFont\SDL_FontCache.cpp(216,25): warning C4309: '=': truncamiento de valor constante
   sprites.cpp
+  stb_vorbis.cpp
   video.cpp
-  GraphicManager.cpp
-C:\Users\User\Desktop\Tetris\0. C++ Code\Logic Game\GraphicManager.cpp(28,37): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\User\Desktop\Tetris\0. C++ Code\Logic Game\GraphicManager.cpp(28,31): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  Figura.cpp
   Joc.cpp
-C:\Users\User\Desktop\Tetris\0. C++ Code\Logic Game\Joc.cpp(38,108): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\User\Desktop\Tetris\0. C++ Code\Logic Game\Joc.cpp(38,67): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\lluc\Desktop\Uni\MP\Tetris\0. C++ Code\Logic Game\Joc.cpp(38,108): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\lluc\Desktop\Uni\MP\Tetris\0. C++ Code\Logic Game\Joc.cpp(38,67): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   Partida.cpp
-C:\Users\User\Desktop\Tetris\0. C++ Code\Logic Game\Partida.cpp(5,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\User\Desktop\Tetris\0. C++ Code\Logic Game\Partida.cpp(20,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  Tetris.cpp
+C:\Users\lluc\Desktop\Uni\MP\Tetris\0. C++ Code\Logic Game\Partida.cpp(5,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\lluc\Desktop\Uni\MP\Tetris\0. C++ Code\Logic Game\Partida.cpp(20,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  GraphicManager.cpp
+C:\Users\lluc\Desktop\Uni\MP\Tetris\0. C++ Code\Logic Game\GraphicManager.cpp(28,37): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\lluc\Desktop\Uni\MP\Tetris\0. C++ Code\Logic Game\GraphicManager.cpp(28,31): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
   main.cpp
+  Tauler.cpp
+  Tetris.cpp
   Generando código...
-  LINK : no se encontró C:\Users\User\Desktop\Tetris\2. Platforms\0. Windows Desktop\\Program\MP_Practica.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
-  MP_Practica.vcxproj -> C:\Users\User\Desktop\Tetris\2. Platforms\0. Windows Desktop\Program\MP_Practica.exe
+  LINK : no se encontró C:\Users\lluc\Desktop\Uni\MP\Tetris\2. Platforms\0. Windows Desktop\\Program\MP_Practica.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+  MP_Practica.vcxproj -> C:\Users\lluc\Desktop\Uni\MP\Tetris\2. Platforms\0. Windows Desktop\Program\MP_Practica.exe

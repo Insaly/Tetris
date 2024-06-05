@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Tetris\\2. Platforms\\0. Windows Desktop\\",
+  "WorkspaceRootPath": "C:\\Users\\lluc\\Desktop\\Uni\\MP\\Tetris\\2. Platforms\\0. Windows Desktop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{95EBFF15-EE8A-4B39-B29E-6E414EFC541A}|MP_Practica.vcxproj|C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -20,13 +20,11 @@
               "DocumentIndex": 0,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\main.cpp",
-              "RelativeDocumentMoniker": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\main.cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\main.cpp",
               "ToolTip": "C:\\Users\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\main.cpp",
-              "RelativeToolTip": "..\\..\\0. C\u002B\u002B Code\\Logic Game\\main.cpp",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAmwCoAAAAJAAAA",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\User\\Desktop\\Tetris\\0. C\u002B\u002B Code\\Logic Game\\main.cpp",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-03T13:36:17.72Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T13:36:17.72Z"
             }
           ]
         }
